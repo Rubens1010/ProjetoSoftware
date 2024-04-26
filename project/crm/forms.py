@@ -14,7 +14,6 @@ class CreateUserForm(UserCreationForm):
         fields = ['first_name','last_name','username', 'email', 'password1', 'password2']
 
 # - Authenticate a user (Model Form)
-
 class LoginForm(AuthenticationForm):
 
     username = forms.CharField(widget=TextInput())
