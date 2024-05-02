@@ -11,7 +11,7 @@
         }
         h1 {
             text-align: center;
-            color: #299D91;
+            color: #07acff;
             margin-top: 5%;
             font-size: 50px;
         }
@@ -40,12 +40,12 @@
             margin-bottom: 10px;
         }
         button {
-            width: 100%;
+            width: 97%;
             height: 35px;
             border: none;
             border-radius: 7px;
             color: #ffffff;
-            background-color: #299D91;
+            background-color: #07acff;
             margin-top: 10px;
         }
         p {
@@ -57,7 +57,7 @@
             color: #7f7f7f;
         }
         a {
-            color: #299D91;
+            color: #07acff;
             text-decoration: none;
         }
         li {
@@ -67,7 +67,7 @@
     </style>
 </head>
 <body>
-    <h1>FINEbank.io</h1>
+    <h1>FINTECH.X</h1>
     <h2>Create an account</h2>
 
     <form method="POST" autocomplete="off">
@@ -75,18 +75,27 @@
 
         <div class="container">
             <label for="first_name"><b>First name</b></label>
-            {{ registerform.first_name }}
+            {{ registerform.first_name }} <br>
+            <br>
             <label for="last_name"><b>Last name</b></label>
             {{ registerform.last_name }}
+            <br>
+            <br>
             <label for="username"><b>Username</b></label>
             {{ registerform.username }}
             {{ registerform.username.errors }}
+            <br>
+            <br>
             <label for="email"><b>Email</b></label>
             {{ registerform.email }}
             {{ registerform.email.errors }}
+            <br>
+            <br>
             <label for="password1"><b>Password</b></label>
             {{ registerform.password1 }}
             {{ registerform.password1.errors }}
+            <br>
+            <br>
             <label for="password2"><b>Confirm password</b></label>
             {{ registerform.password2 }}
             {{ registerform.password2.errors }}
