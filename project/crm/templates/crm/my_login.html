@@ -1,109 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
+
 <head>
-    <meta charset="UTF-8">
+    {% load static %}
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign up</title>
+    <title>LogIn</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        h1 {
-            text-align: center;
-            color: #07acff;
-            margin-top: 5%;
-            font-size: 50px;
-        }
-        h2 {
-            text-align: center;
-            font-size: 25px;
-        }
-        form {
-            width: 100%;
-            margin-top: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            list-style: none;
-        }
-        .container {
-            width: 20%;
-        }
-        input {
-            width: 90%;
-            height: 10px;
-            border: 2px solid #D0D5DD;
-            border-radius: 7px;
-            padding: 10px;
-            color: #7f7f7f;
-            margin-bottom: 10px;
-        }
-        button {
-            width: 97%;
-            height: 35px;
-            border: none;
-            border-radius: 7px;
-            color: #ffffff;
-            background-color: #07acff;
-            margin-top: 10px;
-            cursor: pointer;
-        }
-        p {
-            font-size: medium;
-        }
-        #create_account {
-            margin-top: 30px;
-            font-size: small;
-            color: #7f7f7f;
-        }
-        a {
-            color: #07acff;
-            text-decoration: none;
-        }
-        .eye-icon {
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
-            margin-left: 90%;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom/default.css' %}">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="{% static '/js/bootstrap.min.js' %}"></script>
 </head>
-<body>
-    <h1>FINTECH-X</h1>
-    <h2>Login an account</h2>
 
-    <form method="POST" autocomplete="off">
-        {% csrf_token %}
+<body class="d-flex align-items-center justify-content-center py-4 "style="height: 100vh;">
 
-        <div class="container">
-            <label for="username"><b>Username</b></label>
-            {{ loginform.username }}
-            {{ loginform.username.erros }}
-            <br><br>
-            <label for="password"><b>Password</b></label>
-            <div>
-                {{ loginform.password }}
-                <i class="far fa-eye" id="togglePassword"  style="margin-left: -30px; cursor: pointer;"></i>
-                {{ loginform.password.erros }}
+
+
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="d-flex justify-content-center">
+                    <h1>FINTECH</h1>
+                    <h1 class=" text-primary">.X</h1>
+                </div>
+                <h3 class="text-center text-muted">Login an account</h3>
+                <br>
+                    <form method="POST" autocomplete="off">
+                        {% csrf_token %}
+
+                        <div class="form-group">
+               
+                            <div class="col-sm-12">
+                                {{ loginform.username }}
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            {{ loginform.username.erros }}
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+        
+                                <div class="col-sm-12">
+                                    {{ loginform.password }} 
+                                </div>
+
+                            <div class="col-sm-5">
+                                {{ loginform.password.erros }}
+                            </div>
+                        </div>
+                        <p class="text-center" id="create_account">Don't have an account? <a class="text-primary" href="{% url 'register' %}" class="btn">Register
+                                here</a>
+                        </p>
+                        <div class="form-group">
+                            <button class="btn btn-primary  col-sm-12" type="submit">Login</button>
+                        </div>
+                    </form>
             </div>
-            <p id="create_account">Don't have an account? <a href="{% url 'register' %}" class="btn">Register here</a></p>
-            <button type="submit"><b>Login</b></button>
         </div>
-    </form>
-   
+    </div>
 
     <script>
         const togglePassword = document.querySelector('#togglePassword');
         const password = document.querySelector('#id_password');
 
         togglePassword.addEventListener('click', function (e) {
-            
+
             const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
             password.setAttribute('type', type);
             this.classList.toggle('fa-eye-slash');
         });
     </script>
 </body>
+
 </html>
+ 

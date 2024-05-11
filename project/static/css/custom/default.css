@@ -1,0 +1,72 @@
+/* body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+} */
+
+/* h1 {
+    text-align: center;
+    color: #07acff;
+    margin-top: 5%;
+    font-size: 50px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 25px;
+} */
+
+/* form {
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+} */
+
+/* .container {
+    width: 20%;
+} */
+
+/* input {
+    width: 90%;
+    height: 10px;
+    border: 2px solid #D0D5DD;
+    border-radius: 7px;
+    padding: 10px;
+    color: #7f7f7f;
+    margin-bottom: 10px;
+} */
+
+/* button {
+    width: 97%;
+    height: 35px;
+    border: none;
+    border-radius: 7px;
+    color: #ffffff;
+    background-color: #07acff;
+    margin-top: 10px;
+    cursor: pointer;
+} */
+/* 
+p {
+    font-size: medium;
+} */
+
+#create_account {
+    margin-top: 30px;
+    font-size: small;
+    color: #7f7f7f;
+}
+
+a {
+    color: #07acff;
+    text-decoration: none;
+}
+
+.eye-icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: 90%;
+}
