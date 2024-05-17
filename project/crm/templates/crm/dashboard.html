@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script src="{% static '/js/bootstrap.min.js' %}"></script>
 </head>
 <body>
-    <h1>This is the dashboard</h1>
-    <h1>Olá {{ request.user.username}}</h1>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Olá {{ request.user.username}}</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="{% url 'user-logout' %}"><p class="text-primary">Logout here</p></a></li>
+          </ul>
+        </div>
+      </nav>
 
+    <h1>This is the dashboard</h1>
     <a href="{% url 'user-logout' %}"> Logout here</a>
 
 </body>
