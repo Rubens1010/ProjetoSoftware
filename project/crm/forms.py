@@ -9,23 +9,57 @@ from django.forms.widgets import PasswordInput, TextInput
 # - Create/Register a user (Model Form)
 class CreateUserForm(UserCreationForm):
     first_name = forms.CharField(
-        widget=TextInput(attrs={"class": "form-control", "placeholder": "First Name"})
+        widget=TextInput(
+            attrs={
+                "class": "form-control",
+                "placeholder": "First Name",
+                "id": "floatingInput",
+            }
+        )
     )
     last_name = forms.CharField(
-        widget=TextInput(attrs={"class": "form-control", "placeholder": "Last Name"})
+        widget=TextInput(
+            attrs={
+                "class": "form-control",
+                "placeholder": "Last Name",
+                "id": "floatingInput",
+            }
+        )
     )
     username = forms.CharField(
-        widget=TextInput(attrs={"class": "form-control", "placeholder": "Username"})
+        widget=TextInput(
+            attrs={
+                "class": "form-control",
+                "placeholder": "Username",
+                "id": "floatingInput",
+            }
+        )
     )
     email = forms.CharField(
-        widget=TextInput(attrs={"class": "form-control", "placeholder": "Email"})
+        widget=TextInput(
+            attrs={
+                "class": "form-control",
+                "placeholder": "Email",
+                "id": "floatingInput",
+            }
+        )
     )
     password1 = forms.CharField(
-        widget=PasswordInput(attrs={"class": "form-control", "placeholder": "Password"})
+        widget=PasswordInput(
+            attrs={
+                "class": "form-control",
+                "placeholder": "Password",
+                "id": "floatingInput",
+            }
+        )
     )
     password2 = forms.CharField(
         widget=PasswordInput(
-            attrs={"class": "form-control", "placeholder": "Confirm password"}
+            attrs={
+                "class": "form-control",
+                "placeholder": "Confirm password",
+                "id": "floatingInput",
+            }
         )
     )
 
@@ -44,8 +78,20 @@ class CreateUserForm(UserCreationForm):
 # - Authenticate a user (Model Form)
 class LoginForm(AuthenticationForm):
     username = forms.CharField(
-        widget=TextInput(attrs={"class": "form-control", "placeholder": "username"})
+        widget=TextInput(
+            attrs={
+                "class": "form-control",
+                "placeholder": "username",
+                "id": "floatingInput",
+            }
+        )
     )
     password = forms.CharField(
-        widget=PasswordInput(attrs={"class": "form-control", "placeholder": "Password"})
+        widget=PasswordInput(
+            attrs={
+                "class": "form-control",
+                "placeholder": "Password",
+                "id": "floatingInput",
+            }
+        )
     )

@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
+    <link rel="icon"  href="{% static '/img/logo1.png' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/custom/default.css' %}">
@@ -19,45 +20,71 @@
 <style>
     li{
         color: red;
+        list-style: none;
     }
 </style>
 </head>
 
 <body class="d-flex align-items-center justify-content-center py-4 "style="height: 100vh;">
 
-
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url '' %}"><img style="width: 60px;" src="{% static '/img/logo1.png' %}" alt=""> Bamboo.io</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Bamboo.io</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url '' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'my_login' %}" class="nav-link active"> Login</a>
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'register' %}" class="link-success"> SingUp</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
 
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-md-4">
-                <div class="d-flex justify-content-center">
-                    <h1>FINTECH</h1>
-                    <h1 class=" text-primary">.X</h1>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="25" width="36" viewBox="0 0 576 512"><path fill="#0d6efd" d="M160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32h50.7L9.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L256 109.3V160c0 17.7 14.3 32 32 32s32-14.3 32-32V32c0-17.7-14.3-32-32-32H160zM576 80a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM448 208a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM400 384a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm48 80a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm128 0a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM272 384a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm48 80a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM144 512a48 48 0 1 0 0-96 48 48 0 1 0 0 96zM576 336a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm-48-80a48 48 0 1 0 0-96 48 48 0 1 0 0 96z"/></svg>
-                </div>
+                <h1  class="text-center" style="color: #74c947;">Bamboo.io</h1>
                 <h3 class="text-center text-muted">Sign Up account</h3>
                 <br>
                     <form method="POST" autocomplete="off">
                         {% csrf_token %}
 
                         <div class="form-group">
-                            <div class="col-sm-12">
+                            <div class="form-floating col-sm-12">
                                 {{ registerform.first_name }}
+                                <label for="floatingInputValue">First Name</label> 
                             </div>
                         </div>
                         <br>
 
                         <div class="form-group">
-                                <div class="col-sm-12">
+                                <div class="form-floating col-sm-12">
                                     {{ registerform.last_name }}
+                                    <label for="floatingInputValue">Last Name</label> 
                                 </div>
 
                         </div>
                         <br>
 
                         <div class="form-group">
-                                <div class="col-sm-12">
+                                <div class="form-floating col-sm-12">
                                     {{ registerform.username }}
+                                    <label for="floatingInputValue">Username</label> 
                                 </div>
 
                             <div class="col-sm-5">
@@ -67,8 +94,9 @@
                         <br>
 
                         <div class="form-group">
-                                <div class="col-sm-12">
+                                <div class="form-floating col-sm-12">
                                     {{ registerform.email }}
+                                    <label for="floatingInputValue">Email</label> 
                                 </div>
 
                             <div class="col-sm-5">
@@ -78,8 +106,9 @@
                         <br>
 
                         <div class="form-group">
-                                <div class="col-sm-12">
-                                    {{ registerform.password1 }}  
+                                <div class="form-floating col-sm-12">
+                                    {{ registerform.password1 }}
+                                    <label for="floatingInputValue">Password</label>   
                                 </div>
 
                             <div class="col-sm-5">
@@ -89,18 +118,19 @@
                         <br>
 
                         <div class="form-group">
-                                <div class="col-sm-12">
-                                    {{ registerform.password2 }} 
+                                <div class="form-floating col-sm-12">
+                                    {{ registerform.password2 }}
+                                    <label for="floatingInputValue">Confirm assword</label>  
                                 </div>
 
                             <div class="col-sm-5">
                                 {{ registerform.password2.errors }} 
                             </div>
                         </div>
-                        <p class="text-center" id="create_account">By continuing, you agree to our  <a class="text-primary" href="{% url 'register' %}" class="btn">terms of service.</a>
+                        <p class="text-center" id="create_account">By continuing, you agree to our  <a style="color: #74c947;" class="text" href="{% url 'register' %}" class="btn">terms of service.</a>
                         </p>
                         <div class="form-group">
-                            <button class="btn btn-primary  col-sm-12" type="submit">Sign up</button>
+                            <button style="background-color: #74c947; color: white;" class="btn col-sm-12" type="submit">Sign up</button>
                         </div>
                     </form>
             </div>
