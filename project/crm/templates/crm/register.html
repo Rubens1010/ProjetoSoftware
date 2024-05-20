@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <link rel="icon"  href="{% static '/img/logo1.png' %}">
+    <link rel="icon"  href="{% static '/img/logo3.png' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/custom/default.css' %}">
@@ -33,12 +33,12 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href="{% url '' %}"><img style="width: 60px;" src="{% static '/img/logo1.png' %}" alt=""> Bamboo.io</a>
+            <a class="navbar-brand" href="{% url '' %}"><img style="width: 60px;" src="{% static '/img/logo3.png' %}" alt=""> EquityFlow</a>
           </div>
           
           <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
             <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"><img style="width: 60px;" src="{% static '/img/logo1.png' %}" alt="">Bamboo.io</h5>
+              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"><img style="width: 60px;" src="{% static '/img/logo3.png' %}" alt="">EquityFlow</h5>
               <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
@@ -61,7 +61,11 @@
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-md-4">
-                <h1  class="text-center" style="color: #74c947;">Bamboo.io</h1>
+                <div class="d-flex justify-content-center">
+                    <h1  class="text-center" style="color: #74c947;">Equity</h1>
+                    <h1>Flow</h1>
+                </div>
+               
                 <h3 class="text-center text-muted">Sign Up account</h3>
                 <br>
                     <form method="POST" autocomplete="off">
@@ -123,7 +127,7 @@
                         <div class="form-group">
                                 <div class="form-floating col-sm-12">
                                     {{ registerform.password2 }}
-                                    <label for="floatingInputValue">Confirm assword</label>  
+                                    <label for="floatingInputValue">Confirm password</label>  
                                 </div>
 
                             <div class="col-sm-5">

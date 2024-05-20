@@ -91,7 +91,7 @@ class LoginForm(AuthenticationForm):
             attrs={
                 "class": "form-control",
                 "placeholder": "Password",
-                "id": "floatingInput",
+                "id": "floatingInputPassword",
             }
         )
     )

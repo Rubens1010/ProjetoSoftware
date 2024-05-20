@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LogIn</title>
-    <link rel="icon"  href="{% static '/img/logo1.png' %}">
+    <link rel="icon"  href="{% static '/img/logo3.png' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/custom/default.css' %}">
@@ -21,7 +21,7 @@
     <script src="{% static '/js/bootstrap.min.js' %}"></script>
 </head>
 
-<body class="d-flex align-items-center justify-content-center py-4 "style="background-color:#f3f0e6; height: 100vh;">
+<body class="d-flex align-items-center justify-content-center py-4 "style="height: 100vh;">
 
     <nav class="navbar navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
@@ -29,12 +29,12 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href="{% url '' %}"><img style="width: 60px;" src="{% static '/img/logo1.png' %}" alt=""> Bamboo.io</a>
+            <a class="navbar-brand" href="{% url '' %}"><img style="width: 60px;" src="{% static '/img/logo3.png' %}" alt=""> EquityFlow</a>
           </div>
           
           <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
             <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"><img style="width: 60px;" src="{% static '/img/logo1.png' %}" alt="">Bamboo.io</h5>
+              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"><img style="width: 60px;" src="{% static '/img/logo3.png' %}" alt="">EquityFlow</h5>
               <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
@@ -58,7 +58,10 @@
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-md-4">
-                <h1  class="text-center" style="color: #74c947;">Bamboo.io</h1>
+              <div class="d-flex justify-content-center">
+                <h1 class="text-center" style="color: #74c947;">Equity</h1>
+                <h1>Flow</h1>
+              </div>
                 <h3 class="text-center text-muted">Login an account</h3>
                 <br>
                     <form method="POST" autocomplete="off">
@@ -81,6 +84,8 @@
                                 <div class="form-floating col-sm-12">
                                     {{ loginform.password }}
                                     <label for="floatingInputValue">Password</label> 
+                                    <br>
+                                    <input type="checkbox" onclick="myFunction()"> Show
                                 </div>
 
                             <div class="col-sm-5">
@@ -99,15 +104,14 @@
     </div>
 
     <script>
-        const togglePassword = document.querySelector('#togglePassword');
-        const password = document.querySelector('#id_password');
-
-        togglePassword.addEventListener('click', function (e) {
-
-            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-            password.setAttribute('type', type);
-            this.classList.toggle('fa-eye-slash');
-        });
+      function myFunction() {
+        var x = document.getElementById("floatingInputPassword");
+        if (x.type === "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }
+      }
     </script>
 </body>
 
