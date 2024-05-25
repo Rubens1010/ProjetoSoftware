@@ -1,290 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="icon"  href="{% static '/img/logo3.png' %}">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="{% static '/js/bootstrap.min.js' %}"></script>
-    
-
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="icon" href="{% static 'img/logo3.png' %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </head>
-<body>
 
-  <nav class="navbar navbar-dark bg-dark fixed-top">
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-     <div>
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+      <a class="navbar-brand" href="#">Olá {{ request.user.first_name}} {{ request.user.last_name}}!</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand"> Bem vindo {{ request.user.first_name}} {{ request.user.last_name}}  !</a>
-     </div>
-      <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"><img style="width: 60px;" src="{% static '/img/logo3.png' %}" alt="">{{ request.user.username}}</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-              <a href="{% url 'user-logout' %}" class="link-success"> Logout Here</a>
-            </li>
-          </ul>
-        </div>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'user-logout' %}">Logout</a>
+          </li>
+        </ul>
       </div>
     </div>
   </nav>
 
-  <div class="mt-1">
-    .
-    <!-- apagar isto -->
+  <main class="d-flex flex-nowrap">
+    <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px; height: 100vh;">
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+          <a href="#" class="nav-link active" aria-current="page">
+            Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link">
+            Orders
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link">
+            Products
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link">
+            Customers
+          </a>
+        </li>
+      </ul>
     </div>
-    <div id="content-wrapper" class="d-flex flex-column mt-5">
 
-      <!-- Main Content -->
+    <div style="width: 100%;" id="content-wrapper" class="d-flex flex-column mt-5">
       <div id="content">
-          
-          <!-- Begin Page Content -->
-          <div class="container-fluid">
-
-              <!-- Page Heading -->
-              <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                  <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                  <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                          class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+        <div class="container-fluid">
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i
+                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+          </div>
+          <!-- Content Row -->
+          <div class="row mt-4">
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                        Earnings (Monthly)</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">${{ monthly_earnings }}</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
               </div>
+            </div>
 
-              <!-- Content Row -->
-              <div class="row">
-
-                  <!-- Earnings (Monthly) Card Example -->
-                  <div class="col-xl-3 col-md-6 mb-4">
-                      <div class="card border-left-primary shadow h-100 py-2">
-                          <div class="card-body">
-                              <div class="row no-gutters align-items-center">
-                                  <div class="col mr-2">
-                                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                          Earnings (Monthly)</div>
-                                      <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                                  </div>
-                                  <div class="col-auto">
-                                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
+            <!-- Other cards -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                        subtract </div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">${{ monthly_balance }}</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
                   </div>
-
-                  <!-- Earnings (Monthly) Card Example -->
-                  <div class="col-xl-3 col-md-6 mb-4">
-                      <div class="card border-left-success shadow h-100 py-2">
-                          <div class="card-body">
-                              <div class="row no-gutters align-items-center">
-                                  <div class="col mr-2">
-                                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                          Earnings (Annual)</div>
-                                      <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                                  </div>
-                                  <div class="col-auto">
-                                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-
-                  <!-- Earnings (Monthly) Card Example -->
-                  <div class="col-xl-3 col-md-6 mb-4">
-                      <div class="card border-left-info shadow h-100 py-2">
-                          <div class="card-body">
-                              <div class="row no-gutters align-items-center">
-                                  <div class="col mr-2">
-                                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
-                                      </div>
-                                      <div class="row no-gutters align-items-center">
-                                          <div class="col-auto">
-                                              <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                          </div>
-                                          <div class="col">
-                                              <div class="progress progress-sm mr-2">
-                                                  <div class="progress-bar bg-info" role="progressbar"
-                                                      style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                      aria-valuemax="100"></div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="col-auto">
-                                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-
-                  <!-- Pending Requests Card Example -->
-                  <div class="col-xl-3 col-md-6 mb-4">
-                      <div class="card border-left-warning shadow h-100 py-2">
-                          <div class="card-body">
-                              <div class="row no-gutters align-items-center">
-                                  <div class="col mr-2">
-                                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                          Pending Requests</div>
-                                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                                  </div>
-                                  <div class="col-auto">
-                                      <i class="fas fa-comments fa-2x text-gray-300"></i>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
+                </div>
               </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                        Saldo atual</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{ difference }}</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-comments fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                      </div>
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-auto">
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                        </div>
+                        <div class="col">
+                          <div class="progress progress-sm mr-2">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50"
+                              aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Form to input value -->
+            <form method="POST" action="{% url 'update_value' %}">
+              {% csrf_token %}
+              <div class="mb-3">
+                <label for="monthlyEarnings" class="form-label">Enter Monthly Earnings</label>
+                <input type="number" step="0.01" class="form-control" id="monthlyEarnings" name="monthlyEarnings"
+                  required>
+              </div>
+              <button type="submit" class="btn btn-success">Adicionar Saldos</button>
+            </form>
+
+            <!-- Formulário para subtrair valor -->
+            <form method="post" action="{% url 'subtract_value' %}">
+              {% csrf_token %}
+              <div class="mb-3">
+                <label for="monthlyExpense" class="form-label">Monthly Expense:</label>
+                <input type="text" class="form-control" id="monthlyExpense" name="monthlyExpense">
+              </div>
+              <button type="submit" class="btn btn-success">Adicionar Gastos</button>
+            </form>
+
+          </div>
+          <!-- End of Content Row -->
         </div>
+        <!-- End of container-fluid -->
+      </div>
+      <!-- End of content -->
     </div>
-
-    <main class=" px-md-4">
-        
-    
-        <h2>Section title</h2>
-        <div class="table-responsive small">
-          <table class="table table-striped table-sm">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Header</th>
-                <th scope="col">Header</th>
-                <th scope="col">Header</th>
-                <th scope="col">Header</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1,001</td>
-                <td>random</td>
-                <td>data</td>
-                <td>placeholder</td>
-                <td>text</td>
-              </tr>
-              <tr>
-                <td>1,002</td>
-                <td>placeholder</td>
-                <td>irrelevant</td>
-                <td>visual</td>
-                <td>layout</td>
-              </tr>
-              <tr>
-                <td>1,003</td>
-                <td>data</td>
-                <td>rich</td>
-                <td>dashboard</td>
-                <td>tabular</td>
-              </tr>
-              <tr>
-                <td>1,003</td>
-                <td>information</td>
-                <td>placeholder</td>
-                <td>illustrative</td>
-                <td>data</td>
-              </tr>
-              <tr>
-                <td>1,004</td>
-                <td>text</td>
-                <td>random</td>
-                <td>layout</td>
-                <td>dashboard</td>
-              </tr>
-              <tr>
-                <td>1,005</td>
-                <td>dashboard</td>
-                <td>irrelevant</td>
-                <td>text</td>
-                <td>placeholder</td>
-              </tr>
-              <tr>
-                <td>1,006</td>
-                <td>dashboard</td>
-                <td>illustrative</td>
-                <td>rich</td>
-                <td>data</td>
-              </tr>
-              <tr>
-                <td>1,007</td>
-                <td>placeholder</td>
-                <td>tabular</td>
-                <td>information</td>
-                <td>irrelevant</td>
-              </tr>
-              <tr>
-                <td>1,008</td>
-                <td>random</td>
-                <td>data</td>
-                <td>placeholder</td>
-                <td>text</td>
-              </tr>
-              <tr>
-                <td>1,009</td>
-                <td>placeholder</td>
-                <td>irrelevant</td>
-                <td>visual</td>
-                <td>layout</td>
-              </tr>
-              <tr>
-                <td>1,010</td>
-                <td>data</td>
-                <td>rich</td>
-                <td>dashboard</td>
-                <td>tabular</td>
-              </tr>
-              <tr>
-                <td>1,011</td>
-                <td>information</td>
-                <td>placeholder</td>
-                <td>illustrative</td>
-                <td>data</td>
-              </tr>
-              <tr>
-                <td>1,012</td>
-                <td>text</td>
-                <td>placeholder</td>
-                <td>layout</td>
-                <td>dashboard</td>
-              </tr>
-              <tr>
-                <td>1,013</td>
-                <td>dashboard</td>
-                <td>irrelevant</td>
-                <td>text</td>
-                <td>visual</td>
-              </tr>
-              <tr>
-                <td>1,014</td>
-                <td>dashboard</td>
-                <td>illustrative</td>
-                <td>rich</td>
-                <td>data</td>
-              </tr>
-              <tr>
-                <td>1,015</td>
-                <td>random</td>
-                <td>tabular</td>
-                <td>information</td>
-                <td>text</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </main>
-
-      <script src="dashboard.js"></script>
-
-
+    <!-- End of content-wrapper -->
+  </main>
 </body>
+
 </html>
