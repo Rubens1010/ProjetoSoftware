@@ -3,6 +3,10 @@ from .forms import CreateUserForm, LoginForm
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
+from .forms import FinancialDataForm
+from .models import FinancialData
+from django.utils import timezone
+from decimal import Decimal
 
 
 def homepage(request):
@@ -40,49 +44,66 @@ def my_login(request):
 
 @login_required(login_url="my_login")
 def dashboard(request):
-    # Verifica se o formulário de adição de valor foi enviado
-    if request.method == "POST" and "add_value" in request.POST:
-        new_income = float(request.POST.get("monthlyIncome"))
-        current_earnings = float(request.session.get("monthly_earnings", 0))
-        request.session["monthly_earnings"] = current_earnings + new_income
+    financial_data, created = FinancialData.objects.get_or_create(user=request.user)
+    form = FinancialDataForm(request.POST or None, instance=financial_data)
 
-    # Verifica se o formulário de subtração de valor foi enviado
-    if request.method == "POST" and "subtract_value" in request.POST:
-        new_expense = float(request.POST.get("monthlyExpense"))
-        current_balance = float(request.session.get("monthly_balance", 0))
-        request.session["monthly_balance"] = current_balance - new_expense
-
-    monthly_earnings = request.session.get("monthly_earnings", 0)
-    monthly_balance = request.session.get("monthly_balance", 0)
-
-    # Calcula a diferença entre o valor de entrada e o valor de saída
-    difference = monthly_earnings + monthly_balance
+    if request.method == "POST":
+        if form.is_valid():
+            form.save()
+            return redirect('dashboard')
 
     context = {
-        "monthly_earnings": monthly_earnings,
-        "monthly_balance": monthly_balance,
-        "difference": difference,
+        'form': form,
+        'financial_data': financial_data
     }
 
     return render(request, "crm/dashboard.html", context)
 
 
 @login_required(login_url="my_login")
+def dashboard(request):
+    financial_data, created = FinancialData.objects.get_or_create(user=request.user)
+    form = FinancialDataForm(request.POST or None, instance=financial_data)
+
+    if request.method == "POST":
+        if form.is_valid():
+            form.save()
+            return redirect('dashboard')
+
+    monthly_earnings = financial_data.monthly_income or Decimal('0.00')
+    monthly_expense = financial_data.monthly_expense or Decimal('0.00')
+    difference = monthly_earnings - monthly_expense
+
+    context = {
+        'form': form,
+        'monthly_earnings': monthly_earnings,
+        'monthly_expense': monthly_expense,
+        'difference': difference
+    }
+
+    return render(request, "crm/dashboard.html", context)
+
+@login_required(login_url="my_login")
 def update_value(request):
     if request.method == "POST":
-        new_earnings = float(request.POST.get("monthlyEarnings"))
-        current_earnings = float(request.session.get("monthly_earnings", 0))
-        request.session["monthly_earnings"] = current_earnings + new_earnings
-    return redirect("dashboard")
-
+        financial_data, created = FinancialData.objects.get_or_create(user=request.user)
+        new_earnings = Decimal(request.POST.get('monthlyEarnings'))
+        current_earnings = financial_data.monthly_income or Decimal('0.00')
+        financial_data.monthly_income = current_earnings + new_earnings
+        financial_data.date = request.POST.get('date', timezone.now().date())
+        financial_data.save()
+    return redirect('dashboard')
 
 @login_required(login_url="my_login")
 def subtract_value(request):
     if request.method == "POST":
-        new_expense = float(request.POST.get("monthlyExpense"))
-        current_balance = float(request.session.get("monthly_balance", 0))
-        request.session["monthly_balance"] = current_balance - new_expense
-    return redirect("dashboard")
+        financial_data, created = FinancialData.objects.get_or_create(user=request.user)
+        new_expense = Decimal(request.POST.get('monthlyExpense'))
+        current_expense = financial_data.monthly_expense or Decimal('0.00')
+        financial_data.monthly_expense = current_expense + new_expense
+        financial_data.date = request.POST.get('date', timezone.now().date())
+        financial_data.save()
+    return redirect('dashboard')
 
 
 def user_logout(request):
