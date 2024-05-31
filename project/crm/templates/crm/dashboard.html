@@ -117,53 +117,93 @@
             </div>
         </div>
 
-        <!-- Formulário para adicionar valor -->
-        <form method="POST" action="{% url 'update_value' %}">
-            {% csrf_token %}
-            <div class="mb-3">
-                <label for="monthlyEarnings" class="form-label">Enter Monthly Earnings</label>
-                <input type="number" step="0.01" class="form-control" id="monthlyEarnings" name="monthlyEarnings" required>
-            </div>
-            <div class="mb-3">
-                <label for="date" class="form-label">Date</label>
-                <input type="date" class="form-control" id="date" name="date" required>
-            </div>
-            <button type="submit" class="btn btn-success">Adicionar Saldos</button>
-        </form>
 
-        <!-- Formulário para subtrair valor -->
-        <form method="POST" action="{% url 'subtract_value' %}">
-            {% csrf_token %}
-            <div class="mb-3">
-                <label for="monthlyExpense" class="form-label">Monthly Expense:</label>
-                <input type="number" step="0.01" class="form-control" id="monthlyExpense" name="monthlyExpense" required>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Adicionar Saldos
+        </button>
+        
+        <!-- Modal -->
+        <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar entradas</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="{% url 'update_value' %}">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="monthlyEarnings" class="form-label">Enter Monthly Earnings</label>
+                            <input type="number" step="0.01" class="form-control" id="monthlyEarnings" name="monthlyEarnings" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="date" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="date" name="date" required>
+                        </div>
+                        <button type="submit" class="btn btn-success">Adicionar Saldos</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="date" class="form-label">Date</label>
-                <input type="date" class="form-control" id="date" name="date" required>
             </div>
-            <button type="submit" class="btn btn-danger">Adicionar Gastos</button>
-        </form>
+        </div>
 
-        <div class="d-flex">
+
+         <!-- Button trigger modal -->
+         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
+            Adicionar Gastos
+        </button>
+        
+        <!-- Modal -->
+        <div class="modal fade " id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar Saidasz</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulário para subtrair valor -->
+                    <form method="POST" action="{% url 'subtract_value' %}">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="monthlyExpense" class="form-label">Monthly Expense:</label>
+                            <input type="number" step="0.01" class="form-control" id="monthlyExpense" name="monthlyExpense" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="date" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="date" name="date" required>
+                        </div>
+                        <button type="submit" class="btn btn-danger">Adicionar Gastos</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+               
+                </div>
+            </div>
+            </div>
+        </div>
+       
+
+        
+
+        <div class="d-flex mt-lg-5">
               <!-- Gráfico de Saldo Adicionado -->
             <div class="col-xl-6">
-                <canvas id="addedBalanceChart" style="max-width: 300px; max-height: 300px;"></canvas>
+                <canvas id="addedBalanceChart" style="max-width: 400px; max-height: 400px;"></canvas>
             </div>
 
             <!-- Gráfico de Saídas Adicionadas -->
             <div class="col-xl-6">
-                <canvas id="addedExpenseChart" style="max-width: 300px; max-height: 300px;"></canvas>
+                <canvas id="addedExpenseChart" style="max-width: 400px; max-height: 400px;"></canvas>
             </div>
         </div>
-
-        <!-- Gráfico de Diferença ao Longo do Tempo -->
-        <div class="col-xl-12">
-            <canvas id="differenceOverTimeChart" style="max-width: 600px; max-height: 400px;"></canvas>
-        </div>
-
-
-        
+          
     </div>
     <!-- End of content-wrapper -->
   </main>
@@ -251,13 +291,6 @@
             }
         }
     };
-
-    // Cria o gráfico de diferença ao longo do tempo
-    var differenceOverTimeChart = new Chart(document.getElementById('differenceOverTimeChart'), {
-        type: 'bar',
-        data: differenceOverTimeData,
-        options: differenceOverTimeOptions
-    });
 
 </script>
 
