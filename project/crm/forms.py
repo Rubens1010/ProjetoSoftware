@@ -1,5 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
+from .models import FinancialData
+from django.utils import timezone
 
 from django import forms
 
@@ -95,3 +97,11 @@ class LoginForm(AuthenticationForm):
             }
         )
     )
+
+class FinancialDataForm(forms.ModelForm):
+    date = forms.DateField(widget=forms.SelectDateWidget, initial=timezone.now().date)
+
+    class Meta:
+        model = FinancialData
+        fields = ['monthly_income', 'monthly_expense', 'date']
+
