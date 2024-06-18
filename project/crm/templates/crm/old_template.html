@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EquityFlow - Home</title>
+    <link rel="icon"  href="{% static '/img/logo3.png' %}">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script src="{% static '/js/bootstrap.min.js' %}"></script>
+</head>
+<body style="background-color: #08090a;color: white;">
+
+  <header style="background-color: hsla(0,0%,4%,.8);" class="p-3">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <img style="width: 40px;" src="{% static '/img/logo3.png' %}" alt="">
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+        </ul>
+        <div class="text-end">
+          <a type="button" href="{% url 'my_login' %}" class="btn btn-outline-light me-2">Login</a>
+          <a type="button" href="{% url 'register' %}" class="btn btn-light">Sign-up</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  
+
+  <div class="container text-right">
+    <div class="row align-items-center">
+        <div class="p-5 text-right bg-body-dark">
+          <div class="container py-5">
+            <h1 class="col-lg-7 text-white">EquityFlow is a purpose-built tool for investing and earning money</h1>
+            <p class="col-lg-4 text-secondary">
+              Meet the system for modern product development. Streamline issues, projects, and product roadmaps.
+            </p>
+          </div>
+        </div>
+      <div class="col text-center">
+        <img src="https://getbootstrap.com/docs/5.3/examples/heroes/bootstrap-docs.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="100" height="500" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+
+
+<div id="carouselExampleAutoplaying" class="carousel slide " data-bs-ride="carousel">
+  <div class="carousel-indicators">
+  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+</div>
+<div class="carousel-inner">
+  <div class="carousel-item active">
+    <div style="background-color: black;color: white;" class="container-fluid text-center">
+      <div class="row align-items-center">
+        <div class="col">
+          <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta dolorem a, minima earum voluptatem in reprehenderit atque. Fuga, cumque eaque in deserunt nostrum debitis maiores distinctio quos veniam aspernatur et?</h1>
+        </div>
+        <div class="col">
+          <img src="https://sqy7rm.media.zestyio.com/Crypto-updt-Portfolio1desktop.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="carousel-item">
+    <div style="background-color: black;color: white;" class="container-fluid text-center">
+      <div class="row align-items-center">
+        <div class="col">
+          <h1>2024 Money</h1>
+          <label for="">Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Sit, nesciunt modi numquam est sequi tempora cumque ipsam officia? Eligendi, dolores maxime. <br>Impedit voluptate error a perferendis aliquam, quidem aliquid quae.</label>
+        </div>
+        <div class="col">
+          <img src="https://sqy7rm.media.zestyio.com/Crypto-updt-Portfolio1desktop.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="carousel-item">
+    <div style="background-color: black;color: white;" class="container-fluid text-center">
+      <div class="row align-items-center">
+        <div class="col">
+          <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta dolorem a, minima earum voluptatem in reprehenderit atque. Fuga, cumque eaque in deserunt nostrum debitis maiores distinctio quos veniam aspernatur et?</h1>
+        </div>
+        <div class="col">
+          <img src="https://sqy7rm.media.zestyio.com/Crypto-updt-Portfolio1desktop.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <span class="visually-hidden">Previous</span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <span class="visually-hidden">Next</span>
+</button>
+</div>
+
+
+
+        <div class="container py-5">
+          <h1 class="col-lg-7 text-white">EquityFlow is a purpose-built tool for investing and earning money</h1>
+          <p class="col-lg-4 text-secondary">
+            Meet the system for modern product development. Streamline issues, projects, and product roadmaps.
+          </p>
+        </div>
+      </div>
+
+
+<div class="container px-4 py-5" id="custom-cards">
+
+  <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+    <div class="col">
+      <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('https://linear.app/cdn-cgi/imagedelivery/fO02fVwohEs9s9UHFwon6A/fc435ee2-fabf-4f10-5a37-d89874f4bf00/f=auto,dpr=2,q=95,fit=scale-down,metadata=none'); background-position: 50% 50%;">
+        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+          <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h3>
+          <ul class="d-flex list-unstyled mt-auto">
+            <li class="me-auto">
+              <img src="https://linear.app/cdn-cgi/imagedelivery/fO02fVwohEs9s9UHFwon6A/fc435ee2-fabf-4f10-5a37-d89874f4bf00/f=auto,dpr=2,q=95,fit=scale-down,metadata=none" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+            </li>
+            <li class="d-flex align-items-center me-3">
+              <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
+              <small>Earth</small>
+            </li>
+            <li class="d-flex align-items-center">
+              <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
+              <small>3d</small>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('https://linear.app/cdn-cgi/imagedelivery/fO02fVwohEs9s9UHFwon6A/0e6d3edd-cd37-4bf8-c1bf-b93960169400/f=auto,dpr=2,q=95,fit=scale-down,metadata=none'); background-position: 50% 50%; ">
+        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+          <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Much longer title that wraps to multiple lines</h3>
+          <ul class="d-flex list-unstyled mt-auto">
+            <li class="me-auto">
+              <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+            </li>
+            <li class="d-flex align-items-center me-3">
+              <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
+              <small>Pakistan</small>
+            </li>
+            <li class="d-flex align-items-center">
+              <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
+              <small>4d</small>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('https://linear.app/cdn-cgi/imagedelivery/fO02fVwohEs9s9UHFwon6A/99eeb9b8-3d99-4191-0081-9f302d26f400/f=auto,dpr=2,q=95,fit=scale-down,metadata=none'); background-position: 50% 50%;">
+        <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+          <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Another longer title belongs here</h3>
+          <ul class="d-flex list-unstyled mt-auto">
+            <li class="me-auto">
+              <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+            </li>
+            <li class="d-flex align-items-center me-3">
+              <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
+              <small>California</small>
+            </li>
+            <li class="d-flex align-items-center">
+              <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
+              <small>5d</small>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="px-4 pt-5 my-5 text-center" style="background-color: #08090a; color: white;">
+  <h1 class="display-4 fw-bold text-white">Controle suas finanças <br> em um só lugar</h1>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mb-4">Cuidar do seu dinheiro pode ser simples. Com o nosso gerenciador, você organiza e planeja sua vida financeira em um único lugar.</p>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+      <button type="button" class="btn btn-light btn-lg px-4 me-sm-3">Primary button</button>
+      <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
+    </div>
+  </div>
+  <div class="overflow-hidden" style="max-height: 30vh;">
+    <div class="container px-5">
+      <img src="https://getbootstrap.com/docs/5.3/examples/heroes/bootstrap-docs.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
+    </div>
+  </div>
+</div>
+
+  
+<script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+</body>
+</html>
