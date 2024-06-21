@@ -98,10 +98,10 @@ class LoginForm(AuthenticationForm):
         )
     )
 
+
 class FinancialDataForm(forms.ModelForm):
     date = forms.DateField(widget=forms.SelectDateWidget, initial=timezone.now().date)
 
     class Meta:
         model = FinancialData
-        fields = ['monthly_income', 'monthly_expense', 'date']
-
+        fields = ["monthly_income", "monthly_expense", "date"]
