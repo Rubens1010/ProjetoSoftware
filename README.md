@@ -22,7 +22,7 @@ python -m venv venv
 venv/Scripts/activate
 ```
 
-## Installation
+## Instalation
 ```
 cd project/
 ```
@@ -49,3 +49,13 @@ git checkout -b nome_branch_
 ```
 
 Agora faça suas alterações
+
+## adicionar as alterações feitas e fazer o push
+
+com as alterções feitas, publique a branch para que todos possam ver as alterações
+
+```
+git add .
+git commit -m "o que você fez"
+git push origin nome_branch_
+```
