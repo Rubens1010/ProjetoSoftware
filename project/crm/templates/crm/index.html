@@ -5,7 +5,7 @@
     {% load static %}
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Spark</title>
+    <title>Spark - Gerenciador financeiro</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" type="image/x-icon" href="{% static '/img/assets/images/favicon.svg' %}" />
@@ -115,7 +115,7 @@
                         <p>Cuidar do seu dinheiro pode ser simples. Com o nosso gerenciador, <br> você organiza e planeja sua vida financeira em um único lugar.
                         </p>
                         <div class="button">
-                            <a href="about-us.html" class="btn ">Try for free</a>
+                            <a href="{% url 'register' %}" class="btn ">Try for free</a>
                         </div>
                     </div>
                 </div>
@@ -401,12 +401,6 @@
                                 <p class="wow fadeInUp" data-wow-delay=".6s">There are many variations of passages of
                                     Lorem
                                     Ipsum available, but the majority have suffered alteration in some form.</p>
-                            </div>
-                            <div class="intro-video-play">
-                                <div class="play-thumb wow zoomIn" data-wow-delay=".2s">
-                                    <a href="https://www.youtube.com/watch?v=r44RKWyfcFw&fbclid=IwAR21beSJORalzmzokxDRcGfkZA1AtRTE__l5N4r09HcGS5Y6vOluyouM9EM"
-                                        class="glightbox video"><i class="lni lni-play"></i></a>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -887,32 +881,6 @@
     </section>
     <!--/ End Faq Area -->
 
-    <!-- Start Call Action Area -->
-    <section class="call-action">
-        <div class="container">
-            <div class="inner-content">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 col-md-7 col-12">
-                        <div class="text">
-                            <h2>Download Our App &
-                                <br> Start your free trial today.
-                            </h2>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-5 col-12">
-                        <div class="button">
-                            <a href="pricing.html" class="btn"><i class="lni lni-apple"></i> App Store
-                            </a>
-                            <a href="about-us.html" class="btn btn-alt"><i class="lni lni-play-store"></i> Google
-                                Play</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Call Action Area -->
-
     <!-- Start Footer Area -->
     <footer class="footer section">
         <!-- Start Footer Top -->
@@ -995,10 +963,6 @@
                         <div class="col-lg-6 col-md-6 col-12">
                             <p class="copyright-text">© 2023 Spark - All Rights Reserved</p>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <p class="copyright-owner">Designed and Developed by <a href="https://uideck.com/"
-                                    rel="nofollow" target="_blank">UIdeck</a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1061,14 +1025,6 @@
         });
         cu.start();
 
-        //========= glightbox
-        GLightbox({
-            'href': 'https://www.youtube.com/watch?v=r44RKWyfcFw&fbclid=IwAR21beSJORalzmzokxDRcGfkZA1AtRTE__l5N4r09HcGS5Y6vOluyouM9EM',
-            'type': 'video',
-            'source': 'youtube', //vimeo, youtube or local
-            'width': 900,
-            'autoplayVideos': true,
-        });
 
     </script>
 </body>
