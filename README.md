@@ -2,7 +2,6 @@
 
 ![image](https://github.com/Rubens1010/ProjetoSoftware/assets/124901479/7e1c8d53-9ded-4044-a2b2-8c73c1ef6432)
 
-
 A startup tem como objetivo revolucionar a forma como as pessoas gerenciam suas finanças pessoais, proporcionando uma experiência simplificada, inteligente e altamente personalizada. Nossa missão é capacitar os usuários a tomar o controle de suas vidas financeiras, permitindo que eles atinjam seus objetivos financeiros de forma mais eficaz e sem complicações.
 
 ## Clonar o repositorio
