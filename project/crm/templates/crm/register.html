@@ -1,148 +1,270 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
+<html class="no-js" lang="zxx">
 
 <head>
     {% load static %}
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>Sign Up</title>
-    <link rel="icon"  href="{% static '/img/logo3.png' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/custom/default.css' %}">
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/x-icon" href="{% static '/img/assets/images/favicon.svg' %}" />
 
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="{% static '/css/custom/animate.css' %}" />
+    <link rel="stylesheet" href="{% static '/css/custom/tiny-slider.css' %}" />
+    <link rel="stylesheet" href="{% static '/css/custom/lineIcons.css' %}" />
+    <link rel="stylesheet" href="{% static '/css/custom/bootstrap.min.css' %}" />
+    <script>
+        var logoNormal = "{% static '/img/assets/images/logo/white-logo.svg' %}";
+        var logoSticky = "{% static '/img/assets/images/logo/logo.svg' %}";
+    </script>
+    <link rel="stylesheet" href="{% static '/css/custom//main.css' %}" />
 
-    <!-- Latest compiled JavaScript -->
-    <script src="{% static '/js/bootstrap.min.js' %}"></script>
-
-<style>
-    li{
-        color: red;
-        list-style: none;
-    }
-</style>
 </head>
 
-<body class="d-flex align-items-center justify-content-center py-4 "style="height: 100vh;">
-
-    <nav class="navbar navbar-dark bg-dark fixed-top">
-        <div class="container-fluid">
-          <div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <a class="navbar-brand" href="{% url '' %}"><img style="width: 60px;" src="{% static '/img/logo3.png' %}" alt=""> EquityFlow</a>
-          </div>
-          
-          <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"><img style="width: 60px;" src="{% static '/img/logo3.png' %}" alt="">EquityFlow</h5>
-              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="{% url '' %}">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a href="{% url 'my_login' %}" class="nav-link active"> Login</a>
-                </li>
-                <li class="nav-item">
-                  <a href="{% url 'register' %}" class="link-success"> SingUp</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-    <div class="container mt-4">
-        <div class="row justify-content-center">
-            <div class="col-md-4">
-                <div class="d-flex justify-content-center">
-                    <h1  class="text-center" style="color: #74c947;">Equity</h1>
-                    <h1>Flow</h1>
-                </div>
-               
-                <h3 class="text-center text-muted">Sign Up account</h3>
-                <br>
-                    <form method="POST" autocomplete="off">
-                        {% csrf_token %}
-
-                        <div class="form-group">
-                            <div class="form-floating col-sm-12">
-                                {{ registerform.first_name }}
-                                <label for="floatingInputValue">First Name</label> 
-                            </div>
-                        </div>
-                        <br>
-
-                        <div class="form-group">
-                                <div class="form-floating col-sm-12">
-                                    {{ registerform.last_name }}
-                                    <label for="floatingInputValue">Last Name</label> 
-                                </div>
-
-                        </div>
-                        <br>
-
-                        <div class="form-group">
-                                <div class="form-floating col-sm-12">
-                                    {{ registerform.username }}
-                                    <label for="floatingInputValue">Username</label> 
-                                </div>
-
-                            <div class="col-sm-5">
-                                {{ registerform.username.erros }}
-                            </div>
-                        </div>
-                        <br>
-
-                        <div class="form-group">
-                                <div class="form-floating col-sm-12">
-                                    {{ registerform.email }}
-                                    <label for="floatingInputValue">Email</label> 
-                                </div>
-
-                            <div class="col-sm-5">
-                                {{ registerform.email.errors }} 
-                            </div>
-                        </div>
-                        <br>
-
-                        <div class="form-group">
-                                <div class="form-floating col-sm-12">
-                                    {{ registerform.password1 }}
-                                    <label for="floatingInputValue">Password</label>   
-                                </div>
-
-                            <div class="col-sm-5">
-                                {{ registerform.password1.errors }} 
-                            </div>
-                        </div>
-                        <br>
-
-                        <div class="form-group">
-                                <div class="form-floating col-sm-12">
-                                    {{ registerform.password2 }}
-                                    <label for="floatingInputValue">Confirm password</label>  
-                                </div>
-
-                            <div class="col-sm-5">
-                                {{ registerform.password2.errors }} 
-                            </div>
-                        </div>
-                        <p class="text-center" id="create_account">By continuing, you agree to our  <a style="color: #74c947;" class="text" href="{% url 'register' %}" class="btn">terms of service.</a>
-                        </p>
-                        <div class="form-group">
-                            <button style="background-color: #74c947; color: white;" class="btn col-sm-12" type="submit">Sign up</button>
-                        </div>
-                    </form>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
             </div>
         </div>
     </div>
+    <!-- /End Preloader -->
+
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <!-- Start Navbar -->
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="{% url '' %}">
+                                <img src="{% static 'img/assets/images/logo/white-logo.svg' %}" alt="Logo">
+                            </a>
+                            <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                    <li class="nav-item">
+                                        <a href="{% url '' %}" aria-label="Toggle navigation">Home</a>
+                                    </li>
+                                </ul>
+                            </div> <!-- navbar collapse -->
+                            <div class="button">
+                                <a href="{% url 'my_login' %}" class="btn">Tenho conta</a>
+                            </div>
+                        </nav>
+                        <!-- End Navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- End Header Area -->
+
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 offset-lg-3 col-md-12 col-12">
+                    <div class="breadcrumbs-content">
+                        <h1 class="page-title">Sign Up</h1>
+                        <ul class="breadcrumb-nav">
+                            <li><a href="index.html">Home</a></li>
+                            <li>Sign Up</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+
+    <!-- Start Account Signup Area -->
+    <div class="account-login section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-12">
+
+                    <form class="card login-form inner-content" method="post">
+                        {% csrf_token %}
+                        <div class="card-body">
+                            <div class="title">
+                                <h3>Sign Up Now</h3>
+                                <p>Use the form below to create your account.</p>
+                            </div>
+                            <div class="input-head">
+                                <div class="row">
+                                    <div class="col-lg-6 col-12">
+                                        <div class="form-group input-group">
+                                            <label><i class="lni lni-user"></i></label>
+                                            {{ registerform.first_name }}
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-12">
+                                        <div class="form-group input-group">
+                                            <label><i class="lni lni-envelope"></i></label>
+                                            {{ registerform.last_name }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group input-group">
+                                    <label><i class="lni lni-lock-alt"></i></label>
+                                    {{ registerform.username }}
+                                    <div class="col-sm-5">
+                                        {{ registerform.username.erros }}
+                                    </div>
+                                </div>
+                                <div class="form-group input-group">
+                                    <label><i class="lni lni-lock-alt"></i></label>
+                                    {{ registerform.email }}
+                                    <div class="col-sm-5">
+                                        {{ registerform.email.errors }} 
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group input-group">
+                                    <label><i class="lni lni-lock-alt"></i></label>
+                                    {{ registerform.password1 }}
+                                    <div class="col-sm-5">
+                                        {{ registerform.password1.errors }} 
+                                    </div>
+                                </div>
+                                <div class="form-group input-group">
+                                    <label><i class="lni lni-lock-alt"></i></label>
+                                    {{ registerform.password2 }}
+                                    <div class="col-sm-5">
+                                        {{ registerform.password2.errors }} 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="button">
+                                <button class="btn" type="submit">Create Account</button>
+                            </div>
+                            <h4 class="create-account">Already have an account? <a href="{% url 'my_login' %}">Sign In</a>
+                            </h4>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Account Signup Area -->
+
+    <!-- Start Footer Area -->
+    <footer class="footer section">
+        <!-- Start Footer Top -->
+        <div class="footer-top">
+            <div class="container">
+                <div class="inner-content">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <!-- Single Widget -->
+                            <div class="single-footer f-about">
+                                <div class="logo">
+                                    <a href="index.html">
+                                        <img src="assets/images/logo/white-logo.svg" alt="#">
+                                    </a>
+                                </div>
+                                <p>Making the world a better place through constructing elegant hierarchies.</p>
+                                <h4 class="social-title">Follow Us On:</h4>
+                                <ul class="social">
+                                    <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
+                                    <li><a href="javascript:void(0)"><i class="lni lni-instagram"></i></a></li>
+                                    <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a></li>
+                                    <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
+                                    <li><a href="javascript:void(0)"><i class="lni lni-pinterest"></i></a></li>
+                                    <li><a href="javascript:void(0)"><i class="lni lni-youtube"></i></a></li>
+                                </ul>
+                            </div>
+                            <!-- End Single Widget -->
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-12">
+                            <!-- Single Widget -->
+                            <div class="single-footer f-link">
+                                <h3>Solutions</h3>
+                                <ul>
+                                    <li><a href="javascript:void(0)">Marketing</a></li>
+                                    <li><a href="javascript:void(0)">Analytics</a></li>
+                                    <li><a href="javascript:void(0)">Commerce</a></li>
+                                    <li><a href="javascript:void(0)">Insights</a></li>
+                                </ul>
+                            </div>
+                            <!-- End Single Widget -->
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-12">
+                            <!-- Single Widget -->
+                            <div class="single-footer f-link">
+                                <h3>Support</h3>
+                                <ul>
+                                    <li><a href="javascript:void(0)">Pricing</a></li>
+                                    <li><a href="javascript:void(0)">Documentation</a></li>
+                                    <li><a href="javascript:void(0)">Guides</a></li>
+                                    <li><a href="javascript:void(0)">API Status</a></li>
+                                </ul>
+                            </div>
+                            <!-- End Single Widget -->
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <!-- Single Widget -->
+                            <div class="single-footer newsletter">
+                                <h3>Subscribe</h3>
+                                <p>Subscribe to our newsletter for the latest updates</p>
+                                <form action="#" method="get" target="_blank" class="newsletter-form">
+                                    <input name="EMAIL" placeholder="Email address" required="required" type="email">
+                                    <div class="button">
+                                        <button class="sub-btn"><i class="lni lni-envelope"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- End Single Widget -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/ End Footer Top -->
+        <!-- Start Copyright Area -->
+        <div class="copyright-area">
+            <div class="container">
+                <div class="inner-content">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <p class="copyright-text">© 2023 Spark - All Rights Reserved</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Copyright Area -->
+    </footer>
+    <!--/ End Footer Area -->
+
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+
+    <!-- ========================= JS here ========================= -->
+    <script src="{% static '/js/custom/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static '/js/custom/wow.min.js' %}"></script>
+    <script src="{% static '/js/custom/glightbox.min.js' %}"></script>
+    <script src="{% static '/js/custom/count-up.min.js' %}"></script>
+    <script src="{% static '/js/custom/tiny-slider.js' %}"></script>
+    <script src="{% static '/js/custom/main.js' %}"></script>
 </body>
 
 </html>

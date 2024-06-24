@@ -1,530 +1,1032 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="zxx">
+
 <head>
     {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EquityFlow - Home</title>
-    <link rel="icon"  href="{% static '/img/logo3.png' %}">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Spark - Gerenciador financeiro</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/x-icon" href="{% static '/img/assets/images/favicon.svg' %}" />
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="{% static '/css/custom/animate.css' %}" />
+    <link rel="stylesheet" href="{% static '/css/custom/tiny-slider.css' %}" />
+    <link rel="stylesheet" href="{% static '/css/custom/lineIcons.css' %}" />
+    <link rel="stylesheet" href="{% static '/css/custom/bootstrap.min.css' %}" />
 
-    <script src="{% static '/js/bootstrap.min.js' %}"></script>
+    <script>
+        var logoNormal = "{% static '/img/assets/images/logo/white-logo.svg' %}";
+        var logoSticky = "{% static '/img/assets/images/logo/logo.svg' %}";
+    </script>
+    <link rel="stylesheet" href="{% static '/css/custom//main.css' %}" />
+
 </head>
+
 <body>
-
-  <nav class="navbar navbar-dark bg-dark fixed-top">
-    <div class="container-fluid">
-      <div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="{% url '' %}"><img style="width: 60px;" src="{% static '/img/logo3.png' %}" alt=""> EquityFlow</a>
-      </div>
-      
-      <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"><img style="width: 60px;" src="{% static '/img/logo3.png' %}" alt="">EquityFlow</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url '' %}">Home</a>
-            </li>
-            <li class="nav-item">
-              <a href="{% url 'my_login' %}" class="nav-link active"> Login</a>
-            </li>
-            <li class="nav-item">
-              <a href="{% url 'register' %}" class="link-success"> SingUp</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-<div class="mt-1">
-.
-<!-- apagar isto -->
-</div>
-
-  <div id="carouselExampleAutoplaying" class="carousel slide mt-lg-5" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div style="background-color: #f3f0e6;" class="container-fluid text-center">
-          <div class="row align-items-center">
-            <div class="col">
-              <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta dolorem a, minima earum voluptatem in reprehenderit atque. Fuga, cumque eaque in deserunt nostrum debitis maiores distinctio quos veniam aspernatur et?</h1>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
             </div>
-            <div class="col">
-              <img src="https://sqy7rm.media.zestyio.com/Crypto-updt-Portfolio1desktop.png" alt="">
+        </div>
+    </div>
+    <!-- /End Preloader -->
+
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <!-- Start Navbar -->
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="#">
+                                <img src="{% static '/img/assets/images/logo/white-logo.svg' %}" alt="Logo">
+                            </a>
+                            <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                    <li class="nav-item">
+                                        <a href="#" class="active" aria-label="Toggle navigation">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="about-us.html" aria-label="Toggle navigation">About</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
+                                            data-bs-target="#submenu-1-1" aria-controls="navbarSupportedContent"
+                                            aria-expanded="false" aria-label="Toggle navigation">Pages</a>
+                                        <ul class="sub-menu collapse" id="submenu-1-1">
+                                            <li class="nav-item"><a href="about-us.html">About Us</a></li>
+                                            <li class="nav-item"><a href="pricing.html">Our Pricing</a></li>
+                                            <li class="nav-item"><a href="signin.html">Sign In</a></li>
+                                            <li class="nav-item"><a href="signup.html">Sign Up</a></li>
+                                            <li class="nav-item"><a href="reset-password.html">Reset Password</a>
+                                            <li class="nav-item"><a href="mail-success.html">Mail Success</a></li>
+                                            <li class="nav-item"><a href="404.html">404 Error</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
+                                            data-bs-target="#submenu-1-2" aria-controls="navbarSupportedContent"
+                                            aria-expanded="false" aria-label="Toggle navigation">Blog</a>
+                                        <ul class="sub-menu collapse" id="submenu-1-2">
+                                            <li class="nav-item"><a href="blog-grid.html">Blog Grid</a>
+                                            </li>
+                                            <li class="nav-item"><a href="blog-single.html">Blog Single</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="contact.html" aria-label="Toggle navigation">Contact</a>
+                                    </li>
+                                </ul>
+                            </div> <!-- navbar collapse -->
+                            <div class="button home-btn">
+                                <a href="{% url 'register' %}" class="btn">Try for free</a>
+                            </div>
+                        </nav>
+                        <!-- End Navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- End Header Area -->
+
+    <!-- Start Hero Area -->
+    <section class="hero-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 col-md-12 col-12">
+                    <div class="hero-content">
+                        <h4>Gerenciador virtual</h4>
+                        <h1>Controle suas finanças<br> 
+                            em um só lugar</h1>
+                        <p>Cuidar do seu dinheiro pode ser simples. Com o nosso gerenciador, <br> você organiza e planeja sua vida financeira em um único lugar.
+                        </p>
+                        <div class="button">
+                            <a href="{% url 'register' %}" class="btn ">Try for free</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-12">
+                    <div class="hero-image wow fadeInRight" data-wow-delay=".4s">
+                        <img class="main-image" src="https://preview.uideck.com/items/spark/assets/images/hero/hero-image.png" alt="#"> 
+                        <!-- https://via.placeholder.com/700x1000 -->
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+    </section>
+    <!-- End Hero Area -->
 
-      <div class="carousel-item">
-        <div style="background-color: #191919;color: white;" class="container-fluid text-center">
-          <div class="row align-items-center">
-            <div class="col">
-              <h1>2024 Money</h1>
-              <label for="">Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Sit, nesciunt modi numquam est sequi tempora cumque ipsam officia? Eligendi, dolores maxime. <br>Impedit voluptate error a perferendis aliquam, quidem aliquid quae.</label>
+    <!-- Start Features Area -->
+    <section class="freatures section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-12">
+                    <div class="image wow fadeInLeft" data-wow-delay=".3s">
+                        <img src="https://preview.uideck.com/items/spark/assets/images/features/feature-img.png " alt="#">
+                        <!-- https://via.placeholder.com/665x790 -->
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12">
+                    <div class="content">
+                        <h3 class="heading wow fadeInUp" data-wow-delay=".5s"><span>Aproveite</span>Conheça o 
+                            gerenciador
+                            <br> financeiro da Spark</h3>
+                        <!-- Start Single Feature -->
+                        <div class="single-feature wow fadeInUp" data-wow-delay=".6s">
+                            <div class="f-icon">
+                                <i class="lni lni-dashboard"></i>
+                            </div>
+                            <h4>Fast performance</h4>
+                            <p>Get your blood tests delivered at
+                                home collect a sample from the
+                                news your blood tests</p>
+                        </div>
+                        <!-- End Single Feature -->
+                        <!-- Start Single Feature -->
+                        <div class="single-feature wow fadeInUp" data-wow-delay=".7s">
+                            <div class="f-icon">
+                                <i class="lni lni-pencil-alt"></i>
+                            </div>
+                            <h4>Prototyping</h4>
+                            <p>Get your blood tests delivered at
+                                home collect a sample from the
+                                news your blood tests</p>
+                        </div>
+                        <!-- End Single Feature -->
+                        <!-- Start Single Feature -->
+                        <div class="single-feature wow fadeInUp" data-wow-delay="0.8s">
+                            <div class="f-icon">
+                                <i class="lni lni-vector"></i>
+                            </div>
+                            <h4>Vector Editing</h4>
+                            <p>Get your blood tests delivered at
+                                home collect a sample from the
+                                news your blood tests</p>
+                        </div>
+                        <!-- End Single Feature -->
+                    </div>
+                </div>
             </div>
-            <div class="col">
-              <img src="https://sqy7rm.media.zestyio.com/Crypto-updt-Portfolio1desktop.png" alt="">
+        </div>
+    </section>
+    <!-- End Features Area -->
+
+    <!-- Start Services Area -->
+    <div class="services section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <h3 class="wow zoomIn" data-wow-delay=".2s">What we offer</h3>
+                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Our Services</h2>
+                        <p class="wow fadeInUp" data-wow-delay=".6s">There are many variations of passages of Lorem
+                            Ipsum available, but the majority have suffered alteration in some form.</p>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="carousel-item">
-        <div style="background-color: #f3f0e6;" class="container-fluid text-center">
-          <div class="row align-items-center">
-            <div class="col">
-              <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta dolorem a, minima earum voluptatem in reprehenderit atque. Fuga, cumque eaque in deserunt nostrum debitis maiores distinctio quos veniam aspernatur et?</h1>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay=".2s">
+                    <div class="single-service">
+                        <div class="main-icon">
+                            <i class="lni lni-grid-alt"></i>
+                        </div>
+                        <h4 class="text-title">Brand Identity Design</h4>
+                        <p>Invest in Bitcoin on the regular or save with one of the highest interest rates on the
+                            market.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay=".4s">
+                    <div class="single-service">
+                        <div class="main-icon">
+                            <i class="lni lni-keyword-research"></i>
+                        </div>
+                        <h4 class="text-title">Digital Marketing</h4>
+                        <p>Invest in Bitcoin on the regular or save with one of the highest interest rates on the
+                            market.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay=".6s">
+                    <div class="single-service">
+                        <div class="main-icon">
+                            <i class="lni lni-vector"></i>
+                        </div>
+                        <h4 class="text-title">Design and Development</h4>
+                        <p>Invest in Bitcoin on the regular or save with one of the highest interest rates on the
+                            market.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay=".2s">
+                    <div class="single-service">
+                        <div class="main-icon">
+                            <i class="lni lni-book"></i>
+                        </div>
+                        <h4 class="text-title">IT Consulting Service</h4>
+                        <p>Invest in Bitcoin on the regular or save with one of the highest interest rates on the
+                            market.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay=".4s">
+                    <div class="single-service">
+                        <div class="main-icon">
+                            <i class="lni lni-cloud-network"></i>
+                        </div>
+                        <h4 class="text-title">Cloud Computing</h4>
+                        <p>Invest in Bitcoin on the regular or save with one of the highest interest rates on the
+                            market.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay=".6s">
+                    <div class="single-service">
+                        <div class="main-icon">
+                            <i class="lni lni-display-alt"></i>
+                        </div>
+                        <h4 class="text-title">Graphics Design</h4>
+                        <p>Invest in Bitcoin on the regular or save with one of the highest interest rates on the
+                            market.</p>
+                    </div>
+                </div>
             </div>
-            <div class="col">
-              <img src="https://sqy7rm.media.zestyio.com/Crypto-updt-Portfolio1desktop.png" alt="">
+        </div>
+    </div>
+    <!-- End Services Area -->
+
+    <!-- Start Pricing Table Area -->
+    <section id="pricing" class="pricing-table section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <h3 class="wow zoomIn" data-wow-delay=".2s">pricing</h3>
+                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Pricing & Plans</h2>
+                        <p class="wow fadeInUp" data-wow-delay=".6s">There are many variations of passages of Lorem
+                            Ipsum available, but the majority have suffered alteration in some form.</p>
+                    </div>
+                </div>
             </div>
-          </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay=".4s">
+                    <!-- Single Table -->
+                    <div class="single-table">
+                        <!-- Table Head -->
+                        <div class="table-head">
+                            <h4 class="title">Individual</h4>
+                            <p class="sub-title">Powerful & Awesome Elements</p>
+                            <div class="price">
+                                <h2 class="amount"><span class="currency">$</span>19<span class="duration">/month</span>
+                                </h2>
+                            </div>
+                        </div>
+                        <!-- End Table Head -->
+                        <!-- Start Table Content -->
+                        <div class="table-content">
+                            <!-- Table List -->
+                            <ul class="table-list">
+                                <li>Commercial License</li>
+                                <li>100+ HTML UI Elements</li>
+                                <li>01 Domain Support</li>
+                                <li class="disable">6 Month Premium Support</li>
+                                <li class="disable">Lifetime Updates</li>
+                            </ul>
+                            <!-- End Table List -->
+                        </div>
+                        <!-- End Table Content -->
+                        <div class="button">
+                            <a href="javascript:void(0)" class="btn">Start free trial <i
+                                    class="lni lni-arrow-right"></i></a>
+                        </div>
+                        <p class="no-card">No credit card required</p>
+                    </div>
+                    <!-- End Single Table-->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay=".6s">
+                    <!-- Single Table -->
+                    <div class="single-table middle">
+                        <span class="popular">Most Popular</span>
+                        <!-- Table Head -->
+                        <div class="table-head">
+                            <h4 class="title">Exclusive</h4>
+                            <p class="sub-title">Powerful & Awesome Elements</p>
+                            <div class="price">
+                                <h2 class="amount"><span class="currency">$</span>49<span class="duration">/month</span>
+                                </h2>
+                            </div>
+                        </div>
+                        <!-- End Table Head -->
+                        <!-- Start Table Content -->
+                        <div class="table-content">
+                            <!-- Table List -->
+                            <ul class="table-list">
+                                <li>Commercial License</li>
+                                <li>100+ HTML UI Elements</li>
+                                <li>01 Domain Support</li>
+                                <li>6 Month Premium Support</li>
+                                <li class="disable">Lifetime Updates</li>
+                            </ul>
+                            <!-- End Table List -->
+                        </div>
+                        <!-- End Table Content -->
+                        <div class="button">
+                            <a href="javascript:void(0)" class="btn btn-alt">Start free trial <i
+                                    class="lni lni-arrow-right"></i></a>
+                        </div>
+                        <p class="no-card">No credit card required</p>
+                    </div>
+                    <!-- End Single Table-->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay=".8s">
+                    <!-- Single Table -->
+                    <div class="single-table">
+                        <!-- Table Head -->
+                        <div class="table-head">
+                            <h4 class="title">Premium</h4>
+                            <p class="sub-title">Powerful & Awesome Elements</p>
+                            <div class="price">
+                                <h2 class="amount"><span class="currency">$</span>99<span class="duration">/month</span>
+                                </h2>
+                            </div>
+                        </div>
+                        <!-- End Table Head -->
+                        <!-- Start Table Content -->
+                        <div class="table-content">
+                            <!-- Table List -->
+                            <ul class="table-list">
+                                <li>Commercial License</li>
+                                <li>100+ HTML UI Elements</li>
+                                <li>01 Domain Support</li>
+                                <li>6 Month Premium Support</li>
+                                <li>Lifetime Updates</li>
+                            </ul>
+                            <!-- End Table List -->
+                        </div>
+                        <!-- End Table Content -->
+                        <div class="button">
+                            <a href="javascript:void(0)" class="btn">Start free trial <i
+                                    class="lni lni-arrow-right"></i></a>
+                        </div>
+                        <p class="no-card">No credit card required</p>
+                    </div>
+                    <!-- End Single Table-->
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
+    </section>
+    <!--/ End Pricing Table Area -->
 
-  <main>
-
-    <div class="px-4 pt-5 my-5 text-center border-bottom">
-      <h1 class="display-4 fw-bold text-body-emphasis">Controle suas finanças <br> em um só lugar</h1>
-      <div class="col-lg-6 mx-auto">
-        <p class="lead mb-4">Cuidar do seu dinheiro pode ser simples. Com o nosso gerenciador, você organiza e planeja sua vida financeira em um único lugar.</p>
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-          <button type="button" class="btn btn-success btn-lg px-4 me-sm-3">Primary button</button>
-          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
+    <!-- Start Intro Video Area -->
+    <section class="intro-video-area section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="inner-content-head">
+                        <div class="inner-content">
+                            <img class="shape1" src="{% static '/img/assets/images/video/shape1.svg' %}" alt="#">
+                            <img class="shape2" src="{% static '/img/assets/images/video/shape2.svg' %}" alt="#">
+                            <div class="section-title">
+                                <span class="wow zoomIn" data-wow-delay=".2s">Create your own experience</span>
+                                <h2 class="wow fadeInUp" data-wow-delay=".4s">Watch Our intro video</h2>
+                                <p class="wow fadeInUp" data-wow-delay=".6s">There are many variations of passages of
+                                    Lorem
+                                    Ipsum available, but the majority have suffered alteration in some form.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="overflow-hidden" style="max-height: 30vh;">
-        <div class="container px-5">
-          <img src="https://getbootstrap.com/docs/5.3/examples/heroes/bootstrap-docs.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
+    </section>
+    <!-- End Intro Video Area -->
+
+    <!-- Start Team Area -->
+    <section class="team section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <h3 class="wow zoomIn" data-wow-delay=".2s">Expert Team</h3>
+                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Meet Our Team</h2>
+                        <p class="wow fadeInUp" data-wow-delay=".6s">There are many variations of passages of Lorem
+                            Ipsum available, but the majority have suffered alteration in some form.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-12 wow fadeInUp" data-wow-delay=".3s">
+                    <!-- Start Single Team -->
+                    <div class="single-team">
+                        <div class="team-image">
+                            <img src="https://via.placeholder.com/400x400" alt="#">
+                        </div>
+                        <div class="content">
+                            <h4>Deco Milan
+                                <span>Founder</span>
+                            </h4>
+                            <ul class="social">
+                                <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-instagram"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Single Team -->
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 wow fadeInUp" data-wow-delay=".5s">
+                    <!-- Start Single Team -->
+                    <div class="single-team">
+                        <div class="team-image">
+                            <img src="https://via.placeholder.com/400x400" alt="#">
+                        </div>
+                        <div class="content">
+                            <h4>Liza Marko
+                                <span>Developer</span>
+                            </h4>
+                            <ul class="social">
+                                <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-instagram"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Single Team -->
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 wow fadeInUp" data-wow-delay=".7s">
+                    <!-- Start Single Team -->
+                    <div class="single-team">
+                        <div class="team-image">
+                            <img src="https://via.placeholder.com/400x400" alt="#">
+                        </div>
+                        <div class="content">
+                            <h4>John Smith
+                                <span>Designer</span>
+                            </h4>
+                            <ul class="social">
+                                <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-instagram"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Single Team -->
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 wow fadeInUp" data-wow-delay=".9s">
+                    <!-- Start Single Team -->
+                    <div class="single-team">
+                        <div class="team-image">
+                            <img src="https://via.placeholder.com/400x400" alt="#">
+                        </div>
+                        <div class="content">
+                            <h4>Amion Doe
+                                <span>Co-Founder</span>
+                            </h4>
+                            <ul class="social">
+                                <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-instagram"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Single Team -->
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  
-    <div class="container marketing">
-  
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-        <div class="col-lg-4">
-          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
-          <h2 class="fw-normal">Heading</h2>
-          <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
-          <p><a class="btn btn-secondary" href="#">View details »</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
-          <h2 class="fw-normal">Heading</h2>
-          <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
-          <p><a class="btn btn-secondary" href="#">View details »</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
-          <h2 class="fw-normal">Heading</h2>
-          <p>And lastly this, the third column of representative placeholder content.</p>
-          <p><a class="btn btn-secondary" href="#">View details »</a></p>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-  
-  
-      <!-- START THE FEATURETTES -->
-  
-      <hr class="featurette-divider">
-  
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading fw-normal lh-1">First featurette heading. <span class="text-body-secondary">It’ll blow your mind.</span></h2>
-          <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+    </section>
+    <!--/ End Team Area -->
+
+    <!-- Start Testimonials Area -->
+    <section class="testimonials style2 section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <h3 class="wow zoomIn" data-wow-delay=".2s">Customer Reviews</h3>
+                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Our Testimonials</h2>
+                        <p class="wow fadeInUp" data-wow-delay=".6s">There are many variations of passages of Lorem
+                            Ipsum available, but the majority have suffered alteration in some form.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row testimonial-slider">
+                <div class="col-lg-6 col-12 ">
+                    <!-- Start Single Testimonial -->
+                    <div class="single-testimonial">
+                        <div class="inner-content">
+                            <div class="quote-icon">
+                                <i class="lni lni-quotation"></i>
+                            </div>
+                            <div class="text">
+                                <p>“A vast number of clients decide to create dedicated software is the
+                                    online store. It is nothing but a website with a catalog of products and the
+                                    possibility.”</p>
+                            </div>
+                            <div class="author">
+                                <img src="https://via.placeholder.com/100x100" alt="#">
+                                <h4 class="name">Somalia D Silva
+                                    <span class="deg">Business Manager</span>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Testimonial -->
+                </div>
+                <div class="col-lg-6 col-12 ">
+                    <!-- Start Single Testimonial -->
+                    <div class="single-testimonial">
+                        <div class="inner-content">
+                            <div class="quote-icon">
+                                <i class="lni lni-quotation"></i>
+                            </div>
+                            <div class="text">
+                                <p>“A vast number of clients decide to create dedicated software is the
+                                    online store. It is nothing but a website with a catalog of products and the
+                                    possibility.”</p>
+                            </div>
+                            <div class="author">
+                                <img src="https://via.placeholder.com/100x100" alt="#">
+                                <h4 class="name">David Warner
+                                    <span class="deg">Web Developer</span>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Testimonial -->
+                </div>
+                <div class="col-lg-6 col-12 ">
+                    <!-- Start Single Testimonial -->
+                    <div class="single-testimonial">
+                        <div class="inner-content">
+                            <div class="quote-icon">
+                                <i class="lni lni-quotation"></i>
+                            </div>
+                            <div class="text">
+                                <p>“A vast number of clients decide to create dedicated software is the
+                                    online store. It is nothing but a website with a catalog of products and the
+                                    possibility.”</p>
+                            </div>
+                            <div class="author">
+                                <img src="https://via.placeholder.com/100x100" alt="#">
+                                <h4 class="name">Jems Gilario
+                                    <span class="deg">Graphics Designer</span>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Testimonial -->
+                </div>
+                <div class="col-lg-6 col-12 ">
+                    <!-- Start Single Testimonial -->
+                    <div class="single-testimonial">
+                        <div class="inner-content">
+                            <div class="quote-icon">
+                                <i class="lni lni-quotation"></i>
+                            </div>
+                            <div class="text">
+                                <p>“A vast number of clients decide to create dedicated software is the
+                                    online store. It is nothing but a website with a catalog of products and the
+                                    possibility.”</p>
+                            </div>
+                            <div class="author">
+                                <img src="https://via.placeholder.com/100x100" alt="#">
+                                <h4 class="name">David Warner
+                                    <span class="deg">Web Developer</span>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Testimonial -->
+                </div>
+                <div class="col-lg-6 col-12 ">
+                    <!-- Start Single Testimonial -->
+                    <div class="single-testimonial">
+                        <div class="inner-content">
+                            <div class="quote-icon">
+                                <i class="lni lni-quotation"></i>
+                            </div>
+                            <div class="text">
+                                <p>“A vast number of clients decide to create dedicated software is the
+                                    online store. It is nothing but a website with a catalog of products and the
+                                    possibility.”</p>
+                            </div>
+                            <div class="author">
+                                <img src="https://via.placeholder.com/100x100" alt="#">
+                                <h4 class="name">Jems Gilario
+                                    <span class="deg">Graphics Designer</span>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Testimonial -->
+                </div>
+            </div>
         </div>
-        <div class="col-md-5">
-          <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="https://www.mobills.com.br/blog/wp-content/themes/mobills-blog/institucional/2024/assets/images/img-mobills-beneficios.png" alt="">
+    </section>
+    <!-- End Testimonial Area -->
+
+    <!-- Start Blog Section Area -->
+    <section class="blog-section section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <h3 class="wow zoomIn" data-wow-delay=".2s">Blogs</h3>
+                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Our Latest News</h2>
+                        <p class="wow fadeInUp" data-wow-delay=".6s">There are many variations of passages of Lorem
+                            Ipsum available, but the majority have suffered alteration in some form.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay=".4s">
+                    <!-- Start Single Blog Grid -->
+                    <div class="single-blog-grid">
+                        <div class="blog-img">
+                            <a href="blog-single.html">
+                                <img src="https://via.placeholder.com/500x310" alt="#">
+                            </a>
+                        </div>
+                        <div class="blog-content">
+                            <div class="meta-info">
+                                <a class="date" href="javascript:void(0)"><i class="lni lni-timer"></i> 10 June 2023
+                                </a>
+                                <a class="author" href="javascript:void(0)"><i class="lni lni-user"></i> Anjelio Joly
+                                </a>
+                            </div>
+                            <h4>
+                                <a href="blog-single.html">Branding Involves Developing a Strategy to Creating.</a>
+                            </h4>
+                            <p>Lorem ipsum dolor sit amet, adipscing elitr, sit gifted sed diam nonumy eirmod tempor
+                                ividunt dolore.</p>
+                            <div class="button">
+                                <a href="blog-single.html" class="btn">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Blog Grid -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay=".6s">
+                    <!-- Start Single Blog -->
+                    <div class="single-blog-grid">
+                        <div class="blog-img">
+                            <a href="blog-single.html">
+                                <img src="https://via.placeholder.com/500x310" alt="#">
+                            </a>
+                        </div>
+                        <div class="blog-content">
+                            <div class="meta-info">
+                                <a class="date" href="javascript:void(0)"><i class="lni lni-timer"></i> 5 Aug 2023
+                                </a>
+                                <a class="author" href="javascript:void(0)"><i class="lni lni-user"></i> Kumila ksusi
+                                </a>
+                            </div>
+                            <h4>
+                                <a href="blog-single.html">Design is a Plan or The Construction of an
+                                    Object.</a>
+                            </h4>
+                            <p>Lorem ipsum dolor sit amet, adipscing elitr, sit gifted sed diam nonumy eirmod tempor
+                                ividunt dolore.</p>
+                            <div class="button">
+                                <a href="blog-single.html" class="btn">Read Blog</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Blog Grid -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay=".8s">
+                    <!-- Start Single Blog Grid -->
+                    <div class="single-blog-grid">
+                        <div class="blog-img">
+                            <a href="blog-single.html">
+                                <img src="https://via.placeholder.com/500x310" alt="#">
+                            </a>
+                        </div>
+                        <div class="blog-content">
+                            <div class="meta-info">
+                                <a class="date" href="javascript:void(0)"><i class="lni lni-timer"></i> 25 Dec 2023
+                                </a>
+                                <a class="author" href="javascript:void(0)"><i class="lni lni-user"></i> Alex Jendro
+                                </a>
+                            </div>
+                            <h4>
+                                <a href="blog-single.html">The Data-Driven Approach to Understanding.</a>
+                            </h4>
+                            <p>Lorem ipsum dolor sit amet, adipscing elitr, sit gifted sed diam nonumy eirmod tempor
+                                ividunt dolore.</p>
+                            <div class="button">
+                                <a href="blog-single.html" class="btn">Read Blog</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Blog Grid -->
+                </div>
+            </div>
         </div>
-      </div>
-  
-      <hr class="featurette-divider">
-  
-      <div class="row featurette">
-        <div class="col-md-7 order-md-2">
-          <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that good. <span class="text-body-secondary">See for yourself.</span></h2>
-          <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+    </section>
+    <!-- End Blog Section Area -->
+
+    <!-- Start Faq Area -->
+    <section class="faq section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <h3 class="wow zoomIn" data-wow-delay=".2s">Faq</h3>
+                        <h2 class="wow fadeInUp" data-wow-delay=".4s">frequently asked questions</h2>
+                        <p class="wow fadeInUp" data-wow-delay=".6s">There are many variations of passages of Lorem
+                            Ipsum available, but the majority have
+                            suffered alteration in some form.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-12">
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading1">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                                    <span class="title">Can I cancel my subscription at anytime?</span><i
+                                        class="lni lni-plus"></i>
+                                </button>
+                            </h2>
+                            <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam consectetur sit
+                                        amet ante nec vulputate. Nulla aliquam, justo auctor consequat tincidunt, arcu
+                                        erat mattis lorem.</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam consectetur sit
+                                        amet ante nec vulputate.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading2">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                    <span class="title">Can I change my plan later on?</span><i
+                                        class="lni lni-plus"></i>
+                                </button>
+                            </h2>
+                            <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                                        richardson ad squid. 3 wolf moon officia aute. non cupidatat skateboard dolor
+                                        brunch. Foosd truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor.
+                                    </p>
+                                    <p>
+                                        sunt alqua put a bird on it squid single-origin coffee nulla assumenda
+                                        shoreditch et. Nihil anim ke ffiyeh helvetica, Spark beer labore wes anderson
+                                        cred nesciunt sapiente ea proident.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading3">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                    <span class="title">Will you renew my subscription automatically?</span><i
+                                        class="lni lni-plus"></i>
+                                </button>
+                            </h2>
+                            <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas expedita,
+                                        repellendus est nemo cum quibusdam optio, voluptate hic a tempora facere, nihil
+                                        non itaque alias similique quas quam odit consequatur.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-12 xs-margin">
+                    <div class="accordion" id="accordionExample2">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading11">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse11" aria-expanded="false" aria-controls="collapse11">
+                                    <span class="title">How many sites can I install the widgets of this app
+                                        to?</span><i class="lni lni-plus"></i>
+                                </button>
+                            </h2>
+                            <div id="collapse11" class="accordion-collapse collapse" aria-labelledby="heading11"
+                                data-bs-parent="#accordionExample2">
+                                <div class="accordion-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam consectetur sit
+                                        amet ante nec vulputate. Nulla aliquam, justo auctor consequat tincidunt, arcu
+                                        erat mattis lorem.</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam consectetur sit
+                                        amet ante nec vulputate.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading22">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse22" aria-expanded="false" aria-controls="collapse22">
+                                    <span class="title">Do you offer any discounts?</span><i class="lni lni-plus"></i>
+                                </button>
+                            </h2>
+                            <div id="collapse22" class="accordion-collapse collapse" aria-labelledby="heading22"
+                                data-bs-parent="#accordionExample2">
+                                <div class="accordion-body">
+                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                                        richardson ad squid. 3 wolf moon officia aute. non cupidatat skateboard dolor
+                                        brunch. Foosd truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor.
+                                    </p>
+                                    <p>
+                                        sunt alqua put a bird on it squid single-origin coffee nulla assumenda
+                                        shoreditch et. Nihil anim ke ffiyeh helvetica, Spark beer labore wes anderson
+                                        cred nesciunt sapiente ea proident.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading33">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse33" aria-expanded="false" aria-controls="collapse33">
+                                    <span class="title">Do I get updates for the app?</span><i class="lni lni-plus"></i>
+                                </button>
+                            </h2>
+                            <div id="collapse33" class="accordion-collapse collapse" aria-labelledby="heading33"
+                                data-bs-parent="#accordionExample2">
+                                <div class="accordion-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas expedita,
+                                        repellendus est nemo cum quibusdam optio, voluptate hic a tempora facere, nihil
+                                        non itaque alias similique quas quam odit consequatur.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-5 order-md-1">
-          <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="https://www.mobills.com.br/blog/wp-content/themes/mobills-blog/institucional/2024/assets/images/img-gerenciador-financeiro.png" alt="">
-          <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"></rect><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg> -->
+    </section>
+    <!--/ End Faq Area -->
+
+    <!-- Start Footer Area -->
+    <footer class="footer section">
+        <!-- Start Footer Top -->
+        <div class="footer-top">
+            <div class="container">
+                <div class="inner-content">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <!-- Single Widget -->
+                            <div class="single-footer f-about">
+                                <div class="logo">
+                                    <a href="index.html">
+                                        <img src="assets/images/logo/white-logo.svg" alt="#">
+                                    </a>
+                                </div>
+                                <p>Making the world a better place through constructing elegant hierarchies.</p>
+                                <h4 class="social-title">Follow Us On:</h4>
+                                <ul class="social">
+                                    <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
+                                    <li><a href="javascript:void(0)"><i class="lni lni-instagram"></i></a></li>
+                                    <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a></li>
+                                    <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
+                                    <li><a href="javascript:void(0)"><i class="lni lni-pinterest"></i></a></li>
+                                    <li><a href="javascript:void(0)"><i class="lni lni-youtube"></i></a></li>
+                                </ul>
+                            </div>
+                            <!-- End Single Widget -->
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-12">
+                            <!-- Single Widget -->
+                            <div class="single-footer f-link">
+                                <h3>Solutions</h3>
+                                <ul>
+                                    <li><a href="javascript:void(0)">Marketing</a></li>
+                                    <li><a href="javascript:void(0)">Analytics</a></li>
+                                    <li><a href="javascript:void(0)">Commerce</a></li>
+                                    <li><a href="javascript:void(0)">Insights</a></li>
+                                </ul>
+                            </div>
+                            <!-- End Single Widget -->
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-12">
+                            <!-- Single Widget -->
+                            <div class="single-footer f-link">
+                                <h3>Support</h3>
+                                <ul>
+                                    <li><a href="javascript:void(0)">Pricing</a></li>
+                                    <li><a href="javascript:void(0)">Documentation</a></li>
+                                    <li><a href="javascript:void(0)">Guides</a></li>
+                                    <li><a href="javascript:void(0)">API Status</a></li>
+                                </ul>
+                            </div>
+                            <!-- End Single Widget -->
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <!-- Single Widget -->
+                            <div class="single-footer newsletter">
+                                <h3>Subscribe</h3>
+                                <p>Subscribe to our newsletter for the latest updates</p>
+                                <form action="#" method="get" target="_blank" class="newsletter-form">
+                                    <input name="EMAIL" placeholder="Email address" required="required" type="email">
+                                    <div class="button">
+                                        <button class="sub-btn"><i class="lni lni-envelope"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- End Single Widget -->
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-  
-      <hr class="featurette-divider">
-  
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span class="text-body-secondary">Checkmate.</span></h2>
-          <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
+        <!--/ End Footer Top -->
+        <!-- Start Copyright Area -->
+        <div class="copyright-area">
+            <div class="container">
+                <div class="inner-content">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <p class="copyright-text">© 2023 Spark - All Rights Reserved</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-5">
-          <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="https://www.mobills.com.br/blog/wp-content/themes/mobills-blog/institucional/2024/assets/images/img-politica-privacidade.png" alt="">
+        <!-- End Copyright Area -->
+    </footer>
+    <!--/ End Footer Area -->
 
-          <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"></rect><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg> -->
-        </div>
-      </div>
-  
-      <hr class="featurette-divider">
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top">
+        <i class="lni lni-chevron-up"></i>
+    </a>
 
+    <!-- ========================= JS here ========================= -->
+    <script src="{% static '/js/custom/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static '/js/custom/wow.min.js' %}"></script>
+    <script src="{% static '/js/custom/glightbox.min.js' %}"></script>
+    <script src="{% static '/js/custom/count-up.min.js' %}"></script>
+    <script src="{% static '/js/custom/tiny-slider.js' %}"></script>
+    <script src="{% static '/js/custom/main.js' %}"></script>
 
-  <div class="container my-5">
-    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-        <h1 class="display-4 fw-bold lh-1 text-body-emphasis">Border hero with cropped image and shadows</h1>
-        <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Primary</button>
-          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
-        </div>
-      </div>
-      <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
-          <img class="rounded-lg-3" src="https://getbootstrap.com/docs/5.3/examples/heroes/bootstrap-docs.png" alt="" width="720">
-      </div>
-    </div>
-  </div>
-  
-      <!-- /END THE FEATURETTES -->
-  
-    </div><!-- /.container -->
-  
+    <script>
 
-  </main>
+        //========= testimonial 
+        tns({
+            container: '.testimonial-slider',
+            items: 3,
+            slideBy: 'page',
+            autoplay: false,
+            mouseDrag: true,
+            gutter: 0,
+            nav: true,
+            controls: false,
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                540: {
+                    items: 1,
+                },
+                768: {
+                    items: 2,
+                },
+                992: {
+                    items: 2,
+                },
+                1170: {
+                    items: 3,
+                }
+            }
+        });
 
-
-
-  <div class="container px-4 py-5" id="hanging-icons">
-    <h2 class="pb-2 border-bottom">Hanging icons</h2>
-    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-      <div class="col d-flex align-items-start">
-        <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
-          <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"></use></svg>
-        </div>
-        <div>
-          <h3 class="fs-2 text-body-emphasis">Featured title</h3>
-          <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-          <a href="#" class="btn btn-primary">
-            Primary button
-          </a>
-        </div>
-      </div>
-      <div class="col d-flex align-items-start">
-        <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
-          <svg class="bi" width="1em" height="1em"><use xlink:href="#cpu-fill"></use></svg>
-        </div>
-        <div>
-          <h3 class="fs-2 text-body-emphasis">Featured title</h3>
-          <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-          <a href="#" class="btn btn-primary">
-            Primary button
-          </a>
-        </div>
-      </div>
-      <div class="col d-flex align-items-start">
-        <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
-          <svg class="bi" width="1em" height="1em"><use xlink:href="#tools"></use></svg>
-        </div>
-        <div>
-          <h3 class="fs-2 text-body-emphasis">Featured title</h3>
-          <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-          <a href="#" class="btn btn-primary">
-            Primary button
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
+        //====== counter up 
+        var cu = new counterUp({
+            start: 0,
+            duration: 2000,
+            intvalues: true,
+            interval: 100,
+            append: " ",
+        });
+        cu.start();
 
 
-  <div class="container px-4 py-5" id="custom-cards">
-    <h2 class="pb-2 border-bottom">Custom cards</h2>
-
-    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-      <div class="col">
-        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('https://www.mobills.com.br/blog/wp-content/uploads/2022/12/Veja-20-profissoes-que-ganham-bem-para-voce-seguir-carreira.jpg');">
-          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h3>
-            <ul class="d-flex list-unstyled mt-auto">
-              <li class="me-auto">
-                <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
-              </li>
-              <li class="d-flex align-items-center me-3">
-                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
-                <small>Earth</small>
-              </li>
-              <li class="d-flex align-items-center">
-                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
-                <small>3d</small>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('https://www.mobills.com.br/blog/wp-content/uploads/2023/10/melhor-banco-para-financiamento-imobiliario.png');">
-          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Much longer title that wraps to multiple lines</h3>
-            <ul class="d-flex list-unstyled mt-auto">
-              <li class="me-auto">
-                <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
-              </li>
-              <li class="d-flex align-items-center me-3">
-                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
-                <small>Pakistan</small>
-              </li>
-              <li class="d-flex align-items-center">
-                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
-                <small>4d</small>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('https://www.mobills.com.br/blog/wp-content/uploads/2022/07/Quantas-milhas-para-viajar.jpg');">
-          <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Another longer title belongs here</h3>
-            <ul class="d-flex list-unstyled mt-auto">
-              <li class="me-auto">
-                <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
-              </li>
-              <li class="d-flex align-items-center me-3">
-                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
-                <small>California</small>
-              </li>
-              <li class="d-flex align-items-center">
-                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
-                <small>5d</small>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-      <symbol id="check2" viewBox="0 0 16 16">
-        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path>
-      </symbol>
-      <symbol id="circle-half" viewBox="0 0 16 16">
-        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
-      </symbol>
-      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
-        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
-        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
-      </symbol>
-      <symbol id="sun-fill" viewBox="0 0 16 16">
-        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
-      </symbol>
-    </svg>
-
-    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (light)">
-        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#sun-fill"></use></svg>
-        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-      </button>
-      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="light" aria-pressed="true">
-            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"></use></svg>
-            Light
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
-            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
-            Dark
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
-            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#circle-half"></use></svg>
-            Auto
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-      </ul>
-    </div>
-
-    
-<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-  <symbol id="check" viewBox="0 0 16 16">
-    <title>Check</title>
-    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path>
-  </symbol>
-</svg>
-
-<div class="container py-3">
-  <header>
-    
-
-    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-      <h1 class="display-4 fw-normal text-body-emphasis">Pricing</h1>
-      <p class="fs-5 text-body-secondary">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.</p>
-    </div>
-  </header>
-
-  <main>
-    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm">
-          <div class="card-header py-3">
-            <h4 class="my-0 fw-normal">Free</h4>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title">$0<small class="text-body-secondary fw-light">/mo</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>10 users included</li>
-              <li>2 GB of storage</li>
-              <li>Email support</li>
-              <li>Help center access</li>
-            </ul>
-            <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm">
-          <div class="card-header py-3">
-            <h4 class="my-0 fw-normal">Pro</h4>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title">$15<small class="text-body-secondary fw-light">/mo</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>20 users included</li>
-              <li>10 GB of storage</li>
-              <li>Priority email support</li>
-              <li>Help center access</li>
-            </ul>
-            <button type="button" class="w-100 btn btn-lg btn-primary">Get started</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm border-primary">
-          <div class="card-header py-3 text-bg-primary border-primary">
-            <h4 class="my-0 fw-normal">Enterprise</h4>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title">$29<small class="text-body-secondary fw-light">/mo</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>30 users included</li>
-              <li>15 GB of storage</li>
-              <li>Phone and email support</li>
-              <li>Help center access</li>
-            </ul>
-            <button type="button" class="w-100 btn btn-lg btn-primary">Contact us</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <h2 class="display-6 text-center mb-4">Compare plans</h2>
-
-    <div class="table-responsive">
-      <table class="table text-center">
-        <thead>
-          <tr>
-            <th style="width: 34%;"></th>
-            <th style="width: 22%;">Free</th>
-            <th style="width: 22%;">Pro</th>
-            <th style="width: 22%;">Enterprise</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row" class="text-start">Public</th>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">Private</th>
-            <td></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-          </tr>
-        </tbody>
-
-        <tbody>
-          <tr>
-            <th scope="row" class="text-start">Permissions</th>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">Sharing</th>
-            <td></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">Unlimited members</th>
-            <td></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">Extra security</th>
-            <td></td>
-            <td></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </main>
-
-  
-<script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-    
+    </script>
 </body>
+
 </html>
-
-<!-- {% url 'register' %}
-{% url 'my_login' %} -->
-<!-- src="{% static '/img/People_Dollar_logo__Money_Finances_logo-removebg-preview.png' %}" -->
-
-
-
-<!-- cor azul caso queira trocar #0d6efd -->
