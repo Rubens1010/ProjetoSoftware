@@ -198,12 +198,16 @@
                         {% csrf_token %}
                         <div class="mb-3">
                             <label for="monthlyEarnings" class="form-label">Enter Monthly Earnings</label>
-                            <input type="number" step="0.01" class="form-control" id="monthlyEarnings" name="monthlyEarnings" required>
-                        </div>
+                            <input type="text" class="form-control" id="monthlyEarnings" name="monthlyEarnings" required maxlength="8" pattern="\d*">
+                          </div>
                         <div class="mb-3">
                             <label for="date" class="form-label">Date</label>
                             <input type="date" class="form-control" id="date" name="date" required>
                         </div>
+                        <div class="mb-3">
+                          <label for="description" class="form-label">Categoria</label>
+                          <input type="text" class="form-control" id="description" name="description" required>
+                      </div>
                         <button type="submit" class="btn btn-success">Adicionar Saldos</button>
                     </form>
                 </div>
@@ -225,7 +229,7 @@
             <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar Saidasz</h1>
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar Saidas</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -240,6 +244,10 @@
                             <label for="date" class="form-label">Date</label>
                             <input type="date" class="form-control" id="date" name="date" required>
                         </div>
+                        <div class="mb-3">
+                          <label for="description" class="form-label">Categoria</label>
+                          <input type="text" class="form-control" id="description" name="description" required>
+                      </div>
                         <button type="submit" class="btn btn-danger">Adicionar Gastos</button>
                     </form>
                 </div>
@@ -249,10 +257,7 @@
                 </div>
             </div>
             </div>
-        </div>
-       
-
-        
+        </div>        
 
         <div class="d-flex mt-lg-5">
               <!-- Gráfico de Saldo Adicionado -->
@@ -265,10 +270,46 @@
                 <canvas id="addedExpenseChart" style="max-width: 400px; max-height: 400px;"></canvas>
             </div>
         </div>
+
+
+        <!-- Exibir Extrato -->
+        <h2>Extrato</h2>
+    
+      <!-- Formulário para limpar transações -->
+      <form method="POST" action="{% url 'clear_transactions' %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger">Limpar Transações</button>
+      </form>
+      
+      <table class="table">
+          <thead>
+              <tr>
+                  <th>Data</th>
+                  <th>Tipo</th>
+                  <th>Valor</th>
+                  <th>Descrição</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for transaction in transactions %}
+                  <tr class="{% if transaction.transaction_type == 'expense' %}bg-danger{% endif %}">
+                      <td>{{ transaction.date }}</td>
+                      <td>{{ transaction.get_transaction_type_display }}</td>
+                      <td>${{ transaction.amount }}</td>
+                      <td>{{ transaction.description }}</td>
+                  </tr>
+              {% empty %}
+                  <tr>
+                      <td colspan="4">Nenhuma transação encontrada.</td>
+                  </tr>
+              {% endfor %}
+          </tbody>
+      </table>
           
     </div>
     <!-- End of content-wrapper -->
   </main>
+
 
   <script>
     // Obtém os valores de saldo adicionados e saídas adicionadas do contexto do template
