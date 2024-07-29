@@ -104,4 +104,4 @@ class FinancialDataForm(forms.ModelForm):
 
     class Meta:
         model = FinancialData
-        fields = ["monthly_income", "monthly_expense", "date"]
+        fields = ["monthly_income", "monthly_expense", "date", "description"]

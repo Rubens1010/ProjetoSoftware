@@ -9,4 +9,5 @@ urlpatterns = [
     path("update_value", views.update_value, name="update_value"),
     path("subtract_value", views.subtract_value, name="subtract_value"),
     path("user-logout", views.user_logout, name="user-logout"),
+    path("clear_transactions/", views.clear_transactions, name="clear_transactions"),
 ]
