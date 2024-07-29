@@ -56,7 +56,7 @@ def dashboard(request):
     difference = monthly_earnings - monthly_expense
 
     # Buscar registros de extrato
-    transactions = TransactionRecord.objects.filter(user=request.user).order_by('-date')
+    transactions = TransactionRecord.objects.filter(user=request.user).order_by("-date")
 
     context = {
         "form": form,
@@ -85,7 +85,7 @@ def update_value(request):
         TransactionRecord.objects.create(
             user=request.user,
             amount=new_earnings,
-            transaction_type='income',
+            transaction_type="income",
             description=description,
         )
 
@@ -106,10 +106,11 @@ def subtract_value(request):
         TransactionRecord.objects.create(
             user=request.user,
             amount=new_expense,
-            transaction_type='expense', 
+            transaction_type="expense",
             description=description,
         )
     return redirect("dashboard")
+
 
 @login_required(login_url="my_login")
 def clear_transactions(request):

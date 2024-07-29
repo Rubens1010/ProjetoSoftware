@@ -14,273 +14,457 @@
   <script src="{% static 'js/bootstrap.min.js' %}"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+
+
+<!-- Fontawesome -->
+<link type="text/css" href="https://appsrv1-147a1.kxcdn.com/volt-dashboard/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+
+<!-- Volt CSS -->
+<link type="text/css" href="https://appsrv1-147a1.kxcdn.com/volt-dashboard/css/volt.css" rel="stylesheet">
+
+  
+
 </head>
 
 <body>
-    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-        <symbol id="check2" viewBox="0 0 16 16">
-          <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path>
-        </symbol>
-        <symbol id="circle-half" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
-        </symbol>
-        <symbol id="moon-stars-fill" viewBox="0 0 16 16">
-          <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
-          <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
-        </symbol>
-        <symbol id="sun-fill" viewBox="0 0 16 16">
-          <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
-        </symbol>
-      </svg>
-  
-      
-  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-    <symbol id="bootstrap" viewBox="0 0 118 94">
-      <title>Bootstrap</title>
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"></path>
-    </symbol>
-    <symbol id="home" viewBox="0 0 16 16">
-      <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"></path>
-    </symbol>
-    <symbol id="speedometer2" viewBox="0 0 16 16">
-      <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"></path>
-      <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"></path>
-    </symbol>
-    <symbol id="table" viewBox="0 0 16 16">
-      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"></path>
-    </symbol>
-    <symbol id="people-circle" viewBox="0 0 16 16">
-      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
-      <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path>
-    </symbol>
-    <symbol id="grid" viewBox="0 0 16 16">
-      <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"></path>
-    </symbol>
-  </svg>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Olá {{ request.user.first_name}} {{ request.user.last_name}}!</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'user-logout' %}">Logout</a>
-          </li>
-        </ul>
+  <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-md-none">
+      <a class="navbar-brand mr-lg-5" href="/">
+          <img class="navbar-brand-dark" src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/img/brand/light.svg" alt="Volt logo"> <img class="navbar-brand-light" src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/img/brand/dark.svg" alt="Volt logo">
+      </a>
+      <div class="d-flex align-items-center">
+          <button class="navbar-toggler d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
       </div>
-    </div>
   </nav>
 
-  <main class="d-flex flex-nowrap">
-    <div class="d-flex flex-column flex-shrink-0 bg-body-tertiary" style="width: 4.5rem; height: 100vh;">
-        <a href="/" class="d-block p-3 link-body-emphasis text-decoration-none" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
-          <svg class="bi pe-none" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-          <span class="visually-hidden">Icon-only</span>
-        </a>
-        <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+  <div class="container-fluid bg-soft">
+      <div class="row">
+          <div class="col-12">
+
+              
+  <nav id="sidebarMenu" class="sidebar d-md-block bg-primary text-white collapse px-4">
+      <div class="sidebar-sticky pt-3 mx-auto">
+          <div class="user-card d-flex d-md-none align-items-center justify-content-between justify-content-md-center pb-4">
+          <div class="d-flex align-items-center">
+              <div class="user-avatar lg-avatar mr-4">
+              <img src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/img/team/profile-picture-3.jpg" class="card-img-top rounded-circle border-white" alt="Bonnie Green">
+              </div>
+              <div class="d-block">
+              <h2 class="h6">
+                  test
+              </h2>
+              <a href="{% url 'user-logout' %}" class="btn btn-secondary text-dark btn-xs">
+                  <span class="mr-2"><span class="fas fa-sign-out-alt"></span></span>Sign Out</a>
+              </div>
+          </div>
+          <div class="collapse-close d-md-none">
+              <a href="#sidebarMenu" class="fas fa-times" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="true" aria-label="Toggle navigation"></a>
+          </div>
+          </div>
+          <ul class="nav flex-column">
+          <li class="nav-item   active ">
+              <a href="/dashboard.html" class="nav-link">
+              <span class="sidebar-icon"><span class="fas fa-chart-pie"></span></span>
+              <span>Dashboard</span>
+              </a>
+          </li>
+          <li class="nav-item  ">
+              <a href="/transactions.html" class="nav-link">
+                  <span class="sidebar-icon"><span class="fas fa-hand-holding-usd"></span></span>
+                  <span>Transactions</span>
+              </a>
+          </li>
+          <li class="nav-item  ">
+              <a href="/settings.html" class="nav-link">
+                  <span class="sidebar-icon"><span class="fas fa-cog"></span></span>
+                  <span>Settings</span>
+              </a>
+          </li>
           <li class="nav-item">
-            <a href="#" class="nav-link active py-3 border-bottom rounded-0" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
-              <svg class="bi pe-none" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#home"></use></svg>
-            </a>
+              <span class="nav-link  collapsed  d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#submenu-app">
+              <span>
+                  <span class="sidebar-icon"><span class="fas fa-table"></span></span> 
+                  Tables
+              </span>
+              <span class="link-arrow"><span class="fas fa-chevron-right"></span></span> 
+              </span>
+              <div class="multi-level collapse " role="list" id="submenu-app" aria-expanded="false">
+                  <ul class="flex-column nav">
+                      <li class="nav-item "><a class="nav-link" href="/bootstrap-tables.html"><span>Bootstrap Tables</span></a></li>
+                  </ul>
+              </div>
           </li>
-          <li>
-            <a href="#" class="nav-link py-3 border-bottom rounded-0" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Dashboard" data-bs-original-title="Dashboard">
-              <svg class="bi pe-none" width="24" height="24" role="img" aria-label="Dashboard"><use xlink:href="#speedometer2"></use></svg>
-            </a>
+          <li class="nav-item">
+              <a href="{% url 'user-logout' %}" class="nav-link">
+                  <span class="sidebar-icon"><span class="fas fa-sign-out-alt text-danger"></span></span>
+                  <span>Logout</span>
+              </a>
+          </li>            
+          <li role="separator" class="dropdown-divider mt-4 mb-3 border-black"></li>
+          <li class="nav-item">
+              <a href="/" class="nav-link d-flex align-items-center">
+              <span class="sidebar-icon">
+                  <img src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/img/brand/light.svg" height="20" width="20" alt="Volt Logo">
+              </span>
+              <span class="mt-1">Presentation</span>
+              </a>
           </li>
-          <li>
-            <a href="#" class="nav-link py-3 border-bottom rounded-0" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Orders" data-bs-original-title="Orders">
-              <svg class="bi pe-none" width="24" height="24" role="img" aria-label="Orders"><use xlink:href="#table"></use></svg>
-            </a>
+          <li class="nav-item">
+              <a target="_blank" href="https://themesberg.com/product/django/volt-admin-dashboard-pro" class="nav-link d-flex align-items-center">
+              <span class="sidebar-icon"><span class="fas fa-rocket"></span></span>
+              <span>PRO Version</span>
+              </a>
           </li>
-          <li>
-            <a href="#" class="nav-link py-3 border-bottom rounded-0" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Products" data-bs-original-title="Products">
-              <svg class="bi pe-none" width="24" height="24" role="img" aria-label="Products"><use xlink:href="#grid"></use></svg>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link py-3 border-bottom rounded-0" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Customers" data-bs-original-title="Customers">
-              <svg class="bi pe-none" width="24" height="24" role="img" aria-label="Customers"><use xlink:href="#people-circle"></use></svg>
-            </a>
-          </li>
-        </ul>
-        <div class="dropdown border-top">
-          <a href="#" class="d-flex align-items-center justify-content-center p-3 link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle">
-          </a>
-          <ul class="dropdown-menu text-small shadow">
-            <li><a class="dropdown-item" href="#">New project...</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Sign out</a></li>
           </ul>
+      </div>
+  </nav>
+
+
+          
+              
+
+  <main class="content">
+
+      
+      <nav class="navbar navbar-top navbar-expand navbar-dashboard navbar-dark pl-0 pr-2 pb-0">
+          <div class="container-fluid px-0">
+            <div class="d-flex justify-content-between w-100" id="navbarSupportedContent">
+              <div class="d-flex">
+                <!-- Search form -->
+                <form class="navbar-search form-inline" id="navbar-search-main">
+                  <div class="input-group input-group-merge search-bar">
+                      <span class="input-group-text" id="topbar-addon"><span class="fas fa-search"></span></span>
+                      <input type="text" class="form-control" id="topbarInputIconLeft" placeholder="Search" aria-label="Search" aria-describedby="topbar-addon">
+                  </div>
+                </form>
+              </div>
+              <!-- Navbar links -->
+              <ul class="navbar-nav align-items-center">
+                <li class="nav-item dropdown">
+                  <a class="nav-link text-dark mr-lg-3 icon-notifications" data-unread-notifications="true" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="icon icon-sm">
+                      <span class="fas fa-bell bell-shake shaking"></span>
+                      <span class="icon-badge rounded-circle unread-notifications" style="display: block;"></span>
+                    </span>
+                  </a>
+                  <div class="dropdown-menu dashboard-dropdown dropdown-menu-lg dropdown-menu-center mt-2 py-0">
+                    <div class="list-group list-group-flush">
+                      <a href="#" class="text-center text-primary font-weight-bold border-bottom border-light py-3">Notifications</a>
+                      <a href="#" class="list-group-item list-group-item-action border-bottom border-light">
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                              <!-- Avatar -->
+                              <img alt="Image placeholder" src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/img/team/profile-picture-1.jpg" class="user-avatar lg-avatar rounded-circle">
+                            </div>
+                            <div class="col pl-0 ml--2">
+                              <div class="d-flex justify-content-between align-items-center">
+                                  <div>
+                                    <h4 class="h6 mb-0 text-small">Jose Leos</h4>
+                                  </div>
+                                  <div class="text-right">
+                                    <small class="text-danger">a few moments ago</small>
+                                  </div>
+                              </div>
+                              <p class="font-small mt-1 mb-0">Added you to an event "Project stand-up" tomorrow at 12:30 AM.</p>
+                            </div>
+                        </div>
+                      </a>
+                      <a href="#" class="list-group-item list-group-item-action border-bottom border-light">
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                              <!-- Avatar -->
+                              <img alt="Image placeholder" src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/img/team/profile-picture-2.jpg" class="user-avatar lg-avatar rounded-circle">
+                            </div>
+                            <div class="col pl-0 ml--2">
+                              <div class="d-flex justify-content-between align-items-center">
+                                  <div>
+                                    <h4 class="h6 mb-0 text-small">Neil Sims</h4>
+                                  </div>
+                                  <div class="text-right">
+                                    <small class="text-danger">2 hrs ago</small>
+                                  </div>
+                              </div>
+                              <p class="font-small mt-1 mb-0">You've been assigned a task for "Awesome new project".</p>
+                            </div>
+                        </div>
+                      </a>
+                      <a href="#" class="list-group-item list-group-item-action border-bottom border-light">
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                              <!-- Avatar -->
+                              <img alt="Image placeholder" src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/img/team/profile-picture-3.jpg" class="user-avatar lg-avatar rounded-circle">
+                            </div>
+                            <div class="col pl-0 ml--2">
+                              <div class="d-flex justify-content-between align-items-center">
+                                  <div>
+                                    <h4 class="h6 mb-0 text-small">Roberta Casas</h4>
+                                  </div>
+                                  <div class="text-right">
+                                    <small>5 hrs ago</small>
+                                  </div>
+                              </div>
+                              <p class="font-small mt-1 mb-0">Tagged you in a document called "First quarter financial plans",</p>
+                            </div>
+                        </div>
+                      </a>
+                      <a href="#" class="list-group-item list-group-item-action border-bottom border-light">
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                              <!-- Avatar -->
+                              <img alt="Image placeholder" src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/img/team/profile-picture-4.jpg" class="user-avatar lg-avatar rounded-circle">
+                            </div>
+                            <div class="col pl-0 ml--2">
+                              <div class="d-flex justify-content-between align-items-center">
+                                  <div>
+                                    <h4 class="h6 mb-0 text-small">Joseph Garth</h4>
+                                  </div>
+                                  <div class="text-right">
+                                    <small>1 d ago</small>
+                                  </div>
+                              </div>
+                              <p class="font-small mt-1 mb-0">New message: "Hey, what's up? All set for the presentation?"</p>
+                            </div>
+                        </div>
+                      </a>
+                      <a href="#" class="list-group-item list-group-item-action border-bottom border-light">
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                              <!-- Avatar -->
+                              <img alt="Image placeholder" src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/img/team/profile-picture-5.jpg" class="user-avatar lg-avatar rounded-circle">
+                            </div>
+                            <div class="col pl-0 ml--2">
+                              <div class="d-flex justify-content-between align-items-center">
+                                  <div>
+                                    <h4 class="h6 mb-0 text-small">Bonnie Green</h4>
+                                  </div>
+                                  <div class="text-right">
+                                    <small>2 hrs ago</small>
+                                  </div>
+                              </div>
+                              <p class="font-small mt-1 mb-0">New message: "We need to improve the UI/UX for the landing page."</p>
+                            </div>
+                        </div>
+                      </a>
+                      <a href="#" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link pt-1 px-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="media d-flex align-items-center">
+                      <img class="user-avatar md-avatar rounded-circle" alt="Image placeholder" src="https://cdn-icons-png.flaticon.com/512/149/149071.png">
+                      <div class="media-body ml-2 text-dark align-items-center d-none d-lg-block">
+                        <span class="mb-0 font-small font-weight-bold">
+                          olá {{ request.user}}!
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="dropdown-menu dashboard-dropdown dropdown-menu-right mt-2">
+                    <a class="dropdown-item font-weight-bold" href="/settings.html"><span class="fas fa-cog"></span>Settings</a>
+                    <div role="separator" class="dropdown-divider"></div>
+                    <a class="dropdown-item font-weight-bold" href="{% url 'user-logout' %}">
+                        <span class="fas fa-sign-out-alt text-danger"></span>Logout</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+      </nav>
+
+
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+          <div class="btn-toolbar dropdown">
+              <button class="btn btn-primary btn-sm mr-2 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="fas fa-plus mr-2"></span>New Task
+              </button>
+              <div class="dropdown-menu dashboard-dropdown dropdown-menu-left mt-2">
+                  <a class="dropdown-item font-weight-bold" href="#"><span class="fas fa-tasks"></span>New Task</a>
+                  <a class="dropdown-item font-weight-bold" href="#"><span class="fas fa-cloud-upload-alt"></span>Upload Files</a>
+                  <a class="dropdown-item font-weight-bold" href="#"><span class="fas fa-user-shield"></span>Preview Security</a>
+                  <div role="separator" class="dropdown-divider"></div>
+                  <a class="dropdown-item font-weight-bold" href="#"><span class="fas fa-rocket text-danger"></span>Upgrade to Pro</a>
+              </div>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              Adicionar Saldos
+          </button>
+          
+          <!-- Modal -->
+          <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar entradas</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <form method="POST" action="{% url 'update_value' %}">
+                          {% csrf_token %}
+                          <div class="mb-3">
+                              <label for="monthlyEarnings" class="form-label">Enter Monthly Earnings</label>
+                              <input type="text" class="form-control" id="monthlyEarnings" name="monthlyEarnings" required maxlength="8" pattern="\d*">
+                            </div>
+                          <div class="mb-3">
+                              <label for="date" class="form-label">Date</label>
+                              <input type="date" class="form-control" id="date" name="date" required>
+                          </div>
+                          <div class="mb-3">
+                            <label for="description" class="form-label">Descrição</label>
+                            <input type="text" class="form-control" id="description" name="description" required>
+                        </div>
+                          <button type="submit" class="btn btn-success">Adicionar Saldos</button>
+                      </form>
+                  </div>
+                  <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
+              </div>
+              </div>
+          </div>
+  
+  
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
+              Adicionar Gastos
+          </button>
+          
+          <!-- Modal -->
+          <div class="modal fade " id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar Saidas</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <!-- Formulário para subtrair valor -->
+                      <form method="POST" action="{% url 'subtract_value' %}">
+                          {% csrf_token %}
+                          <div class="mb-3">
+                              <label for="monthlyExpense" class="form-label">Monthly Expense:</label>
+                              <input type="number" step="0.01" class="form-control" id="monthlyExpense" name="monthlyExpense" required>
+                          </div>
+                          <div class="mb-3">
+                              <label for="date" class="form-label">Date</label>
+                              <input type="date" class="form-control" id="date" name="date" required>
+                          </div>
+                          <div class="mb-3">
+                            <label for="description" class="form-label">Descrição</label>
+                            <input type="text" class="form-control" id="description" name="description" required>
+                        </div>
+                          <button type="submit" class="btn btn-danger">Adicionar Gastos</button>
+                      </form>
+                  </div>
+                  <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
+              </div>
+              </div>
+          </div>    
+          </div>
+      </div>
+      <div class="row justify-content-md-center">
+          <div class="col-12 mb-4">
+              <div class="card bg-yellow-alt shadow-sm">
+                  <div class="card-header d-flex flex-row align-items-center flex-0">
+                      <div class="d-block">
+                          <div class="h5 font-weight-normal mb-2">Value</div>
+                          <h2 class="h3">${{ difference }}</h2>
+                          <div class="small mt-2"> 
+                              <span class="font-weight-bold mr-2">Yesterday</span>                              
+                              <span class="fas fa-angle-up text-success"></span>                                   
+                              <span class="text-success font-weight-bold">10.57%</span>
+                          </div>
+                      </div>
+                      <div class="d-flex ml-auto">
+                          <a href="#" class="btn btn-secondary text-dark btn-sm mr-2">Month</a>
+                          <a href="#" class="btn btn-primary btn-sm mr-3">Week</a>
+                      </div>
+                  </div>
+                  <div class="card-body p-2">
+                      <div class="ct-chart-sales-value ct-double-octave ct-series-g"><div class="chartist-tooltip"></div><svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="100%" class="ct-chart-line" style="width: 100%; height: 100%;"><g class="ct-grids"><line x1="50" x2="50" y1="15" y2="93.75" class="ct-grid ct-horizontal"></line><line x1="125" x2="125" y1="15" y2="93.75" class="ct-grid ct-horizontal"></line><line x1="200" x2="200" y1="15" y2="93.75" class="ct-grid ct-horizontal"></line><line x1="275" x2="275" y1="15" y2="93.75" class="ct-grid ct-horizontal"></line><line x1="350" x2="350" y1="15" y2="93.75" class="ct-grid ct-horizontal"></line><line x1="425" x2="425" y1="15" y2="93.75" class="ct-grid ct-horizontal"></line><line x1="500" x2="500" y1="15" y2="93.75" class="ct-grid ct-horizontal"></line></g><g><g class="ct-series ct-series-a"><path d="M50,93.75L50,93.75C75,91.125,100,89.375,125,85.875C150,82.375,175,73.625,200,70.125C225,66.625,250,66.45,275,62.25C300,58.05,325,30.75,350,30.75C375,30.75,400,46.5,425,46.5C450,46.5,475,25.5,500,15L500,93.75Z" class="ct-area"></path><path d="M50,93.75C75,91.125,100,89.375,125,85.875C150,82.375,175,73.625,200,70.125C225,66.625,250,66.45,275,62.25C300,58.05,325,30.75,350,30.75C375,30.75,400,46.5,425,46.5C450,46.5,475,25.5,500,15" class="ct-line"></path><line x1="50" y1="93.75" x2="50.01" y2="93.75" class="ct-point" ct:value="0"></line><line x1="125" y1="85.875" x2="125.01" y2="85.875" class="ct-point" ct:value="10"></line><line x1="200" y1="70.125" x2="200.01" y2="70.125" class="ct-point" ct:value="30"></line><line x1="275" y1="62.25" x2="275.01" y2="62.25" class="ct-point" ct:value="40"></line><line x1="350" y1="30.75" x2="350.01" y2="30.75" class="ct-point" ct:value="80"></line><line x1="425" y1="46.5" x2="425.01" y2="46.5" class="ct-point" ct:value="60"></line><line x1="500" y1="15" x2="500.01" y2="15" class="ct-point" ct:value="100"></line></g></g><g class="ct-labels"><foreignObject style="overflow: visible;" x="50" y="98.75" width="75" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 75px; height: 20px;">Mon</span></foreignObject><foreignObject style="overflow: visible;" x="125" y="98.75" width="75" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 75px; height: 20px;">Tue</span></foreignObject><foreignObject style="overflow: visible;" x="200" y="98.75" width="75" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 75px; height: 20px;">Wed</span></foreignObject><foreignObject style="overflow: visible;" x="275" y="98.75" width="75" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 75px; height: 20px;">Thu</span></foreignObject><foreignObject style="overflow: visible;" x="350" y="98.75" width="75" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 75px; height: 20px;">Fri</span></foreignObject><foreignObject style="overflow: visible;" x="425" y="98.75" width="75" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 75px; height: 20px;">Sat</span></foreignObject><foreignObject style="overflow: visible;" x="500" y="98.75" width="30" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 30px; height: 20px;">Sun</span></foreignObject></g></svg></div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-12 col-sm-6 col-xl-4 mb-4">
+              <div class="card border-light shadow-sm">
+                  <div class="card-body">
+                      <div class="row d-block d-xl-flex align-items-center">
+                          <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+                              <div class="icon icon-shape icon-md icon-shape-blue rounded mr-4 mr-sm-0"><span class="fas fa-chart-line"></span></div>
+                          </div>
+                          <div class="col-12 col-xl-7 px-xl-0">
+                              <div class="d-none d-sm-block">
+                                  <h2 class="h5">Earnings (Monthly)</h2>
+                                  <h3 class="mb-1">${{ monthly_earnings }}</h3>
+                              </div>
+                              <div class="small mt-2">                               
+                                  <span class="fas fa-angle-up text-success"></span>                                   
+                                  <span class="text-success font-weight-bold">18.2%</span> Since last month
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-12 col-sm-6 col-xl-4 mb-4">
+              <div class="card border-light shadow-sm">
+                  <div class="card-body">
+                      <div class="row d-block d-xl-flex align-items-center">
+                          <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+                              <div class="icon icon-shape icon-md icon-shape-secondary rounded mr-4"><span class="fas fa-cash-register"></span></div>
+                          </div>
+                          <div class="col-12 col-xl-7 px-xl-0">
+                              <div class="d-none d-sm-block">
+                                  <h2 class="h5">Expenses (Monthly)</h2>
+                                  <h3 class="mb-1">${{ monthly_expense }}</h3>
+                              </div>
+                              <div class="small mt-2">                               
+                                  <span class="fas fa-angle-up text-success"></span>                                   
+                                  <span class="text-success font-weight-bold">28.2%</span> Since last month
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-12 col-sm-6 col-xl-4 mb-4">
+            <div class="card border-light shadow-sm">
+                <div class="card-body">
+                    <div class="row d-block d-xl-flex align-items-center">
+                        <canvas id="addedBalanceChart" style="max-width: 400px; max-height: 400px;"></canvas>
+                        <!-- <canvas id="addedExpenseChart" style="max-width: 400px; max-height: 400px;"></canvas>    -->
+                    </div>
+                </div>
+            </div>
         </div>
       </div>
-
-    <div class="container">
-        <h1>Dashboard</h1>
-
-        <!-- Exibição dos valores -->
-        <div class="row">
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-primary shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    Earnings (Monthly)</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">${{ monthly_earnings }}</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-danger shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                                    Expenses (Monthly)</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">${{ monthly_expense }}</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-success shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                    Difference</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">${{ difference }}</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Adicionar Saldos
-        </button>
-        
-        <!-- Modal -->
-        <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar entradas</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form method="POST" action="{% url 'update_value' %}">
-                        {% csrf_token %}
-                        <div class="mb-3">
-                            <label for="monthlyEarnings" class="form-label">Enter Monthly Earnings</label>
-                            <input type="text" class="form-control" id="monthlyEarnings" name="monthlyEarnings" required maxlength="8" pattern="\d*">
+      
+      <div class="row">
+          <div class="">
+              <div class="row">
+                  <div class="col-12 mb-4">
+                      <div class="card border-light shadow-sm">
+                          <div class="card-header">
+                              <div class="row align-items-center">
+                                  <div class="col">
+                                  <h2 class="h5">Extrato</h2>
+                                  </div>
+                                  <div class="col text-right">
+                                    <form method="POST" action="{% url 'clear_transactions' %}">
+                                      {% csrf_token %}
+                                      <button type="submit" class="btn btn-danger">Limpar Transações</button>
+                                  </form>
+                                  </div>
+                              </div>
                           </div>
-                        <div class="mb-3">
-                            <label for="date" class="form-label">Date</label>
-                            <input type="date" class="form-control" id="date" name="date" required>
-                        </div>
-                        <div class="mb-3">
-                          <label for="description" class="form-label">Categoria</label>
-                          <input type="text" class="form-control" id="description" name="description" required>
-                      </div>
-                        <button type="submit" class="btn btn-success">Adicionar Saldos</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-            </div>
-        </div>
-
-
-         <!-- Button trigger modal -->
-         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
-            Adicionar Gastos
-        </button>
-        
-        <!-- Modal -->
-        <div class="modal fade " id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar Saidas</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Formulário para subtrair valor -->
-                    <form method="POST" action="{% url 'subtract_value' %}">
-                        {% csrf_token %}
-                        <div class="mb-3">
-                            <label for="monthlyExpense" class="form-label">Monthly Expense:</label>
-                            <input type="number" step="0.01" class="form-control" id="monthlyExpense" name="monthlyExpense" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="date" class="form-label">Date</label>
-                            <input type="date" class="form-control" id="date" name="date" required>
-                        </div>
-                        <div class="mb-3">
-                          <label for="description" class="form-label">Categoria</label>
-                          <input type="text" class="form-control" id="description" name="description" required>
-                      </div>
-                        <button type="submit" class="btn btn-danger">Adicionar Gastos</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-               
-                </div>
-            </div>
-            </div>
-        </div>        
-
-        <div class="d-flex mt-lg-5">
-              <!-- Gráfico de Saldo Adicionado -->
-            <div class="col-xl-6">
-                <canvas id="addedBalanceChart" style="max-width: 400px; max-height: 400px;"></canvas>
-            </div>
-
-            <!-- Gráfico de Saídas Adicionadas -->
-            <div class="col-xl-6">
-                <canvas id="addedExpenseChart" style="max-width: 400px; max-height: 400px;"></canvas>
-            </div>
-        </div>
-
-
-        <!-- Exibir Extrato -->
-        <h2>Extrato</h2>
     
       <!-- Formulário para limpar transações -->
-      <form method="POST" action="{% url 'clear_transactions' %}">
-          {% csrf_token %}
-          <button type="submit" class="btn btn-danger">Limpar Transações</button>
-      </form>
-      
       <table class="table">
           <thead>
               <tr>
@@ -292,7 +476,7 @@
           </thead>
           <tbody>
               {% for transaction in transactions %}
-                  <tr class="{% if transaction.transaction_type == 'expense' %}bg-danger{% endif %}">
+                  <tr class="{% if transaction.transaction_type == 'expense' %}bg-danger{% else %}bg-success {% endif %}">
                       <td>{{ transaction.date }}</td>
                       <td>{{ transaction.get_transaction_type_display }}</td>
                       <td>${{ transaction.amount }}</td>
@@ -305,18 +489,23 @@
               {% endfor %}
           </tbody>
       </table>
-      <ul class="pagination">
-        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-      </ul>
-          
-    </div>
-    <!-- End of content-wrapper -->
+      </div>
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+          </div>
+      </div>
   </main>
 
+
+
+          </div>
+      </div>
+  </div>
 
   <script>
     // Obtém os valores de saldo adicionados e saídas adicionadas do contexto do template
@@ -403,6 +592,50 @@
     };
 
 </script>
+  
+  <!-- Core -->
+  <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/vendor/popper.js/dist/umd/popper.min.js"></script>
+  <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+  
+  <!-- Vendor JS -->
+  <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/vendor/onscreen/dist/on-screen.umd.min.js"></script>
+  
+  <!-- Slider -->
+  <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/vendor/nouislider/distribute/nouislider.min.js"></script>
+  
+  <!-- Jarallax -->
+  <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/vendor/jarallax/dist/jarallax.min.js"></script><div style="position: fixed; top: -9999px; left: 0px; height: 100vh; width: 0px;"></div>
+  
+  <!-- Smooth scroll -->
+  <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+  
+  <!-- Count up -->
+  <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/vendor/countup.js/dist/countUp.umd.js"></script>
+  
+  <!-- Notyf -->
+  <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/vendor/notyf/notyf.min.js"></script>
+  
+  <!-- Charts -->
+  <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/vendor/chartist/dist/chartist.min.js"></script>
+  <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+  
+  <!-- Datepicker -->
+  <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/vendor/vanillajs-datepicker/dist/js/datepicker.min.js"></script>
+  
+  <!-- Simplebar -->
+  <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/vendor/simplebar/dist/simplebar.min.js"></script>
+
+  <!-- Github buttons -->
+  <script async="" defer="" src="https://buttons.github.io/buttons.js"></script>
+
+  <!-- Volt JS -->
+  <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/js/volt.min.js"></script>
+  
+  
+  <!-- Specific Page JS goes HERE  -->
+  
+
+
 
 </body>
 
