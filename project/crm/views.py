@@ -1,10 +1,9 @@
 from django.shortcuts import render, redirect
-from .forms import CreateUserForm, LoginForm
+from crm.forms import CreateUserForm, LoginForm, FinancialDataForm
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
-from .forms import FinancialDataForm
-from .models import FinancialData, TransactionRecord
+from crm.models import FinancialData, TransactionRecord
 from django.utils import timezone
 from decimal import Decimal
 
