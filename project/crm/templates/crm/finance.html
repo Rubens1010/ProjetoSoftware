@@ -114,6 +114,12 @@
     background-color: #2ed06e;
 }
 
+select {
+    background-color: #262626;
+    color: #2ed06e;
+    border: #262626;
+}
+
 </style>
 </head>
 
@@ -248,9 +254,22 @@
           </div>
       </nav>
 
+
+      
+    
+   
+
       <main id="container">
         <div id="calculator">
-            <h2>Calculadora de Investimento (renda fixa)</h2>
+            <h2>Calculadora de Investimento  <select id="investment-type" onchange="updateSubtypes()">
+                <option value="crypto">Criptomoedas</option>
+                <option value="stocks">Ações</option>
+                <option value="fixed-income">Renda Fixa</option>
+            </select></h2>
+            <label for="subtype">Subtipo de Investimento:</label>
+            <select id="subtype">
+                <!-- Subtipos serão preenchidos dinamicamente -->
+            </select>
             <div id="input_box">
                 <div class="input-field">
                     <label for="value">Valor Inicial (capital):</label>
@@ -279,92 +298,162 @@
         </div>
     </main>
 
+    <script src="{% static 'chat.js' %}" type="text/javascript"></script>
+
+
     <script>
-        // Inicialize a variável growthChart no escopo global
-        let growthChart = null;
-        
-        // Função para formatar números como moeda brasileira
-        const formatCurrency = (number) => {
-                return number.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-            };
+    // Inicialize a variável growthChart no escopo global
+    let growthChart = null;
 
-        // Função que será chamada quando o botão for clicado
-        function calculateAndUpdateChart() {
-            const value = parseFloat(document.getElementById('value').value);
-            const fee = parseFloat(document.getElementById('fee').value) / 100;
-            const time = parseInt(document.getElementById('time').value);
+    // Função para formatar números como moeda brasileira
+    const formatCurrency = (number) => {
+        return number.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    };
 
-            // Verifica se os valores de entrada são válidos
-            if (isNaN(value) || isNaN(fee) || isNaN(time) || value <= 0 || fee <= 0 || time <= 0) {
-                alert('Por favor, insira valores válidos para todos os campos.');
-                return;
-            }
+    // Função que será chamada quando o botão for clicado
+    function calculateAndUpdateChart() {
+        const value = parseFloat(document.getElementById('value').value);
+        const time = parseInt(document.getElementById('time').value);
+        const investmentType = document.getElementById('investment-type').value;
+        const investmentSubtype = document.getElementById('subtype').value;
 
-            // Calcula o valor total ao final do período
-            const total = value * Math.pow((1 + fee), time);
-
-            // Calcula o total investido (apenas o capital inicial)
-            const totalInvested = value * time;
-
-            // Calcula o juros acumulado sozinho
-            const totalInterest = total + totalInvested;
-
-            // Exibe os resultados formatados
-            document.getElementById('total').innerHTML = formatCurrency(total);
-            document.getElementById('total-invested').innerHTML = "Total Investido: " + formatCurrency(totalInvested);
-            document.getElementById('total-interest').innerHTML = "Total Acumulado: " + formatCurrency(totalInterest);
-
-            // Calcula os valores ao longo do tempo para o gráfico
-            const valuesOverTime = [];
-            for (let i = 0; i <= time; i++) {
-                valuesOverTime.push(value * Math.pow((1 + fee), i));
-            }
-
-            // Atualiza o gráfico
-            updateChart(valuesOverTime);
+        // Verifica se os valores de entrada são válidos
+        if (isNaN(value) || isNaN(time) || value <= 0 || time <= 0) {
+            alert('Por favor, insira valores válidos para todos os campos.');
+            return;
         }
 
-        // Função para criar e atualizar o gráfico
-        function updateChart(data) {
-            const ctx = document.getElementById('growthChart').getContext('2d');
-
-            // Verifica se o gráfico já existe e o destrói antes de criar um novo
-            if (growthChart instanceof Chart) {
-                growthChart.destroy();
+        // Definir taxas de retorno diferentes para cada subtipo de investimento
+        let fee;
+        if (investmentType === 'crypto') {
+            switch (investmentSubtype) {
+                case 'bitcoin':
+                    fee = 0.06; // Exemplo: 6% ao mês para Bitcoin
+                    break;
+                case 'ethereum':
+                    fee = 0.05; // Exemplo: 5% ao mês para Ethereum
+                    break;
+                default:
+                    fee = 0; // Caso algo dê errado
             }
+        } else if (investmentType === 'stocks') {
+            switch (investmentSubtype) {
+                case 'tech':
+                    fee = 0.04; // Exemplo: 4% ao mês para Ações de Tecnologia
+                    break;
+                case 'finance':
+                    fee = 0.03; // Exemplo: 3% ao mês para Ações de Financeiras
+                    break;
+                default:
+                    fee = 0;
+            }
+        } else if (investmentType === 'fixed-income') {
+            switch (investmentSubtype) {
+                case 'cdb':
+                    fee = 0.02; // Exemplo: 2% ao mês para CDB
+                    break;
+                case 'tesouro':
+                    fee = 0.015; // Exemplo: 1.5% ao mês para Tesouro Direto
+                    break;
+                default:
+                    fee = 0;
+            }
+        }
 
-            growthChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: Array.from({ length: data.length }, (_, i) => i), // Cria os labels dos meses
-                    datasets: [{
-                        label: 'Valor ao longo do tempo',
-                        data: data,
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                        fill: true,
-                        tension: 0.1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    scales: {
-                        x: {
-                            title: {
-                                display: true,
-                                text: 'Meses'
-                            }
-                        },
-                        y: {
-                            title: {
-                                display: true,
-                                text: 'Valor (R$)'
-                            }
+        // Calcula o valor total ao final do período
+        const total = value * Math.pow((1 + fee), time);
+
+        // Calcula o total investido (apenas o capital inicial)
+        const totalInvested = value * time;
+
+        // Calcula o juros acumulado sozinho
+        const totalInterest = total - value;
+
+        // Exibe os resultados formatados
+        document.getElementById('total').innerHTML = "Total: " + formatCurrency(total);
+        document.getElementById('total-invested').innerHTML = "Total Investido: " + formatCurrency(totalInvested);
+        document.getElementById('total-interest').innerHTML = "Juros Acumulados: " + formatCurrency(totalInterest);
+
+        // Calcula os valores ao longo do tempo para o gráfico
+        const valuesOverTime = [];
+        for (let i = 0; i <= time; i++) {
+            valuesOverTime.push(value * Math.pow((1 + fee), i));
+        }
+
+        // Atualiza o gráfico
+        updateChart(valuesOverTime);
+    }
+
+    // Função para criar e atualizar o gráfico
+    function updateChart(data) {
+        const ctx = document.getElementById('growthChart').getContext('2d');
+
+        // Verifica se o gráfico já existe e o destrói antes de criar um novo
+        if (growthChart instanceof Chart) {
+            growthChart.destroy();
+        }
+
+        growthChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: Array.from({ length: data.length }, (_, i) => i), // Cria os labels dos meses
+                datasets: [{
+                    label: 'Valor ao longo do tempo',
+                    data: data,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    fill: true,
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Meses'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Valor (R$)'
                         }
                     }
                 }
-            });
+            }
+        });
+    }
+
+    // Função para atualizar os subtipos de investimento dinamicamente
+    function updateSubtypes() {
+        const investmentType = document.getElementById('investment-type').value;
+        const subtypeSelect = document.getElementById('subtype');
+        
+        // Limpar os subtipos atuais
+        subtypeSelect.innerHTML = '';
+
+        // Adicionar subtipos com base no tipo de investimento selecionado
+        if (investmentType === 'crypto') {
+            subtypeSelect.innerHTML = `
+                <option value="bitcoin">Bitcoin</option>
+                <option value="ethereum">Ethereum</option>
+            `;
+        } else if (investmentType === 'stocks') {
+            subtypeSelect.innerHTML = `
+                <option value="tech">Ações de Tecnologia</option>
+                <option value="finance">Ações Financeiras</option>
+            `;
+        } else if (investmentType === 'fixed-income') {
+            subtypeSelect.innerHTML = `
+                <option value="cdb">CDB</option>
+                <option value="tesouro">Tesouro Direto</option>
+            `;
         }
+    }
+
+
     </script>
   
   <!-- Core -->

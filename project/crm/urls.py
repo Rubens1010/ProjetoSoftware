@@ -10,5 +10,5 @@ urlpatterns = [
     path("subtract_value", views.subtract_value, name="subtract_value"),
     path("user-logout", views.user_logout, name="user-logout"),
     path("clear_transactions/", views.clear_transactions, name="clear_transactions"),
-    path("finance/",views.finance, name="finance"),
+    path("finance/", views.finance, name="finance"),
 ]

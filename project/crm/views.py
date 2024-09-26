@@ -11,6 +11,7 @@ from decimal import Decimal
 def homepage(request):
     return render(request, "crm/index.html")
 
+
 def finance(request):
     return render(request, "crm/finance.html")
 
