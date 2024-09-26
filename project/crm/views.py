@@ -12,6 +12,10 @@ def homepage(request):
     return render(request, "crm/index.html")
 
 
+def finance(request):
+    return render(request, "crm/finance.html")
+
+
 def register(request):
     form = CreateUserForm()
     if request.method == "POST":
