@@ -1,11 +1,13 @@
-from django.shortcuts import render, redirect
-from crm.forms import CreateUserForm, LoginForm, FinancialDataForm
-from django.contrib.auth.models import auth
+from decimal import Decimal
+
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
-from crm.models import FinancialData, TransactionRecord
+from django.contrib.auth.models import auth
+from django.shortcuts import redirect, render
 from django.utils import timezone
-from decimal import Decimal
+
+from crm.forms import CreateUserForm, FinancialDataForm, LoginForm
+from crm.models import FinancialData, TransactionRecord
 
 
 def homepage(request):
@@ -43,7 +45,6 @@ def my_login(request):
 
     context = {"loginform": form}
     return render(request, "crm/my_login.html", context=context)
-
 
 @login_required(login_url="my_login")
 def dashboard(request):
