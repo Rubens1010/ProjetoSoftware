@@ -60,7 +60,12 @@ def dashboard(request):
     monthly_expense = financial_data.monthly_expense or Decimal("0.00")
     difference = monthly_earnings - monthly_expense
 
-    # Buscar registros de extrato
+    # Calcula a porcentagem da diferença em relação aos ganhos
+    if monthly_earnings != 0:  # Evitar divisão por zero
+        percentage = (difference / monthly_earnings) * 100
+    else:
+        percentage = Decimal("0.00")  # Definir como 0 se não houver ganhos
+
     transactions = TransactionRecord.objects.filter(user=request.user).order_by("-date")
 
     context = {
@@ -68,10 +73,11 @@ def dashboard(request):
         "monthly_earnings": monthly_earnings,
         "monthly_expense": monthly_expense,
         "difference": difference,
+        "percentage": percentage,
         "transactions": transactions,
     }
 
-    return render(request, "crm/dashboard.html", context)
+    return render(request, "crm/dashboard_new.html", context)
 
 
 @login_required(login_url="my_login")
