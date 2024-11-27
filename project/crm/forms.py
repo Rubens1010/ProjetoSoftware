@@ -1,11 +1,10 @@
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django import forms
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
-from .models import FinancialData
+from django.forms.widgets import PasswordInput, TextInput
 from django.utils import timezone
 
-from django import forms
-
-from django.forms.widgets import PasswordInput, TextInput
+from .models import FinancialData
 
 
 # - Create/Register a user (Model Form)

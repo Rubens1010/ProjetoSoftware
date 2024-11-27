@@ -60,39 +60,18 @@
                                         <a href="#" class="active" aria-label="Toggle navigation">Início</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="about-us.html" aria-label="Toggle navigation">Sobre</a>
+                                        <a href="#sobre" aria-label="Toggle navigation">Sobre</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
-                                            data-bs-target="#submenu-1-1" aria-controls="navbarSupportedContent"
-                                            aria-expanded="false" aria-label="Toggle navigation">Páginas</a>
-                                        <ul class="sub-menu collapse" id="submenu-1-1">
-                                            <li class="nav-item"><a href="about-us.html">Quem somos</a></li>
-                                            <li class="nav-item"><a href="pricing.html">Nossos preços</a></li>
-                                            <li class="nav-item"><a href="signin.html">Entrar</a></li>
-                                            <li class="nav-item"><a href="signup.html">Registrar-se</a></li>
-                                            <li class="nav-item"><a href="reset-password.html">Redefinir senha</a>
-                                            <li class="nav-item"><a href="mail-success.html">Suspensão de e-mail</a></li>
-                                            <li class="nav-item"><a href="404.html">404 Error</a></li>
-                                        </ul>
+                                        <a href="#pricing" aria-label="Toggle navigation">Preço</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
-                                            data-bs-target="#submenu-1-2" aria-controls="navbarSupportedContent"
-                                            aria-expanded="false" aria-label="Toggle navigation">Blog</a>
-                                        <ul class="sub-menu collapse" id="submenu-1-2">
-                                            <li class="nav-item"><a href="blog-grid.html">Grade de Blog</a>
-                                            </li>
-                                            <li class="nav-item"><a href="blog-single.html">Postagem de Blog Individual</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="contact.html" aria-label="Toggle navigation">Fale conosco</a>
+                                        <a href="#contact" aria-label="Toggle navigation">Fale conosco</a>
                                     </li>
                                 </ul>
                             </div> <!-- navbar collapse -->
                             <div class="button home-btn">
-                                <a href="{% url 'register' %}" class="btn">Teste grátis</a>
+                                <a href="{% url 'my_login' %}" class="btn">Tenho Conta</a>
                             </div>
                         </nav>
                         <!-- End Navbar -->
@@ -131,7 +110,7 @@
     <!-- End Hero Area -->
 
     <!-- Start Features Area -->
-    <section class="freatures section">
+    <section id="sobre" class="freatures section">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 col-12">
@@ -196,7 +175,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
-                        <h3 class="wow zoomIn" data-wow-delay=".2s">Oque oferecemos</h3>
+                        <h3 class="wow zoomIn" data-wow-delay=".2s">O que oferecemos</h3>
                         <h2 class="wow fadeInUp" data-wow-delay=".4s">Nossos Serviços</h2>
                         <p class="wow fadeInUp" data-wow-delay=".6s">Outras maneira de alavancar sua vida financeira.</p>
                     </div>
@@ -243,8 +222,7 @@
                     <div class="section-title">
                         <h3 class="wow zoomIn" data-wow-delay=".2s">Valores</h3>
                         <h2 class="wow fadeInUp" data-wow-delay=".4s">Preços e Planos</h2>
-                        <p class="wow fadeInUp" data-wow-delay=".6s">There are many variations of passages of Lorem
-                            Ipsum available, but the majority have suffered alteration in some form.</p>
+                        <p class="wow fadeInUp" data-wow-delay=".6s">Escolha o seu plano e aventure-se no mundo das financas.</p>
                     </div>
                 </div>
             </div>
@@ -254,10 +232,10 @@
                     <div class="single-table">
                         <!-- Table Head -->
                         <div class="table-head">
-                            <h4 class="title">Individual</h4>
+                            <h4 class="title">Gratuito</h4>
                             <p class="sub-title">Elementos Poderosos e Incríveis</p>
                             <div class="price">
-                                <h2 class="amount"><span class="currency">$</span>19<span class="duration">/mês</span>
+                                <h2 class="amount"><span class="currency">$</span>0<span class="duration">/mês</span>
                                 </h2>
                             </div>
                         </div>
@@ -266,17 +244,17 @@
                         <div class="table-content">
                             <!-- Table List -->
                             <ul class="table-list">
-                                <li>Commercial License</li>
-                                <li>100+ HTML UI Elements</li>
-                                <li>01 Domain Support</li>
-                                <li class="disable">6 Month Premium Support</li>
-                                <li class="disable">Lifetime Updates</li>
+                                <li>Dashboard Completo</li>
+                                <li>Calculadora</li>
+                                <li>Acesso gráficos</li>
+                                <li class="disable">Suporte</li>
+                                <li class="disable">Extratos personalizados</li>
                             </ul>
                             <!-- End Table List -->
                         </div>
                         <!-- End Table Content -->
                         <div class="button">
-                            <a href="javascript:void(0)" class="btn">Start free trial <i
+                            <a href="{% url 'register' %}" class="btn">Começar<i
                                     class="lni lni-arrow-right"></i></a>
                         </div>
                         <p class="no-card">No credit card required</p>
@@ -289,10 +267,10 @@
                         <span class="popular">Most Popular</span>
                         <!-- Table Head -->
                         <div class="table-head">
-                            <h4 class="title">Exclusive</h4>
+                            <h4 class="title">Personal</h4>
                             <p class="sub-title">Powerful & Awesome Elements</p>
                             <div class="price">
-                                <h2 class="amount"><span class="currency">$</span>49<span class="duration">/month</span>
+                                <h2 class="amount"><span class="currency">$</span>19<span class="duration">/mês</span>
                                 </h2>
                             </div>
                         </div>
@@ -301,17 +279,18 @@
                         <div class="table-content">
                             <!-- Table List -->
                             <ul class="table-list">
-                                <li>Commercial License</li>
-                                <li>100+ HTML UI Elements</li>
-                                <li>01 Domain Support</li>
-                                <li>6 Month Premium Support</li>
-                                <li class="disable">Lifetime Updates</li>
+                                <li>Dashboard Completo</li>
+                                <li>Calculadora</li>
+                                <li>Acesso gráficos</li>
+                                <li>Acesso IA (chatbot)</li>
+                                <li class="disable">Suporte</li>
+                                <li class="disable">Extratos personalizados</li>
                             </ul>
                             <!-- End Table List -->
                         </div>
                         <!-- End Table Content -->
                         <div class="button">
-                            <a href="javascript:void(0)" class="btn btn-alt">Start free trial <i
+                            <a href="{% url 'register' %}" class="btn btn-alt">Teste Grátis <i
                                     class="lni lni-arrow-right"></i></a>
                         </div>
                         <p class="no-card">No credit card required</p>
@@ -323,10 +302,10 @@
                     <div class="single-table">
                         <!-- Table Head -->
                         <div class="table-head">
-                            <h4 class="title">Premium</h4>
+                            <h4 class="title">Enterprise</h4>
                             <p class="sub-title">Powerful & Awesome Elements</p>
                             <div class="price">
-                                <h2 class="amount"><span class="currency">$</span>99<span class="duration">/month</span>
+                                <h2 class="amount"><span class="currency">$</span>30<span class="duration">/mês</span>
                                 </h2>
                             </div>
                         </div>
@@ -335,17 +314,19 @@
                         <div class="table-content">
                             <!-- Table List -->
                             <ul class="table-list">
-                                <li>Commercial License</li>
-                                <li>100+ HTML UI Elements</li>
-                                <li>01 Domain Support</li>
-                                <li>6 Month Premium Support</li>
-                                <li>Lifetime Updates</li>
+                                <li>Dashboard Completo</li>
+                                <li>Calculadora</li>
+                                <li>Acesso gráficos</li>
+                                <li>Acesso investimentos</li>
+                                <li>Acesso IA (chatbot)</li>
+                                <li class="disable">Suporte</li>
+                                <li class="disable">Extratos personalizados</li>
                             </ul>
                             <!-- End Table List -->
                         </div>
                         <!-- End Table Content -->
                         <div class="button">
-                            <a href="javascript:void(0)" class="btn">Start free trial <i
+                            <a href="{% url 'register' %}" class="btn">Teste Grátis <i
                                     class="lni lni-arrow-right"></i></a>
                         </div>
                         <p class="no-card">No credit card required</p>
@@ -357,30 +338,6 @@
     </section>
     <!--/ End Pricing Table Area -->
 
-    <!-- Start Intro Video Area -->
-    <section class="intro-video-area section">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="inner-content-head">
-                        <div class="inner-content">
-                            <img class="shape1" src="{% static '/img/assets/images/video/shape1.svg' %}" alt="#">
-                            <img class="shape2" src="{% static '/img/assets/images/video/shape2.svg' %}" alt="#">
-                            <div class="section-title">
-                                <span class="wow zoomIn" data-wow-delay=".2s">Create your own experience</span>
-                                <h2 class="wow fadeInUp" data-wow-delay=".4s">Watch Our intro video</h2>
-                                <p class="wow fadeInUp" data-wow-delay=".6s">There are many variations of passages of
-                                    Lorem
-                                    Ipsum available, but the majority have suffered alteration in some form.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Intro Video Area -->
-
     <!-- Start Team Area -->
     <section class="team section">
         <div class="container">
@@ -388,9 +345,7 @@
                 <div class="col-12">
                     <div class="section-title">
                         <h3 class="wow zoomIn" data-wow-delay=".2s">Expert Team</h3>
-                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Meet Our Team</h2>
-                        <p class="wow fadeInUp" data-wow-delay=".6s">There are many variations of passages of Lorem
-                            Ipsum available, but the majority have suffered alteration in some form.</p>
+                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Conheça nosso time</h2>
                     </div>
                 </div>
             </div>
@@ -399,11 +354,11 @@
                     <!-- Start Single Team -->
                     <div class="single-team">
                         <div class="team-image">
-                            <img src="https://via.placeholder.com/400x400" alt="#">
+                            <img src="{% static 'img/Rubens.jpeg' %}" alt="#">
                         </div>
                         <div class="content">
-                            <h4>Deco Milan
-                                <span>Founder</span>
+                            <h4>Rubens Gabriel
+                                <span>CEO</span>
                             </h4>
                             <ul class="social">
                                 <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
@@ -419,10 +374,10 @@
                     <!-- Start Single Team -->
                     <div class="single-team">
                         <div class="team-image">
-                            <img src="https://via.placeholder.com/400x400" alt="#">
+                            <img src="{% static 'img/Thalis.jpeg' %}" alt="#">
                         </div>
                         <div class="content">
-                            <h4>Liza Marko
+                            <h4>Thalis Barros
                                 <span>Developer</span>
                             </h4>
                             <ul class="social">
@@ -439,11 +394,11 @@
                     <!-- Start Single Team -->
                     <div class="single-team">
                         <div class="team-image">
-                            <img src="https://via.placeholder.com/400x400" alt="#">
+                            <img src="{% static 'img/PP.jpeg' %}" alt="#">
                         </div>
                         <div class="content">
-                            <h4>John Smith
-                                <span>Designer</span>
+                            <h4>Pedro Sousa
+                                <span>Developer</span>
                             </h4>
                             <ul class="social">
                                 <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
@@ -459,11 +414,32 @@
                     <!-- Start Single Team -->
                     <div class="single-team">
                         <div class="team-image">
-                            <img src="https://via.placeholder.com/400x400" alt="#">
+                            <img src="{% static 'img/kaique.jpg' %}" alt="#">
                         </div>
                         <div class="content">
-                            <h4>Amion Doe
-                                <span>Co-Founder</span>
+                            <h4>Kaique Gomes
+                                <span>CTO</span>
+                            </h4>
+                            <ul class="social">
+                                <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-instagram"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Single Team -->
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-12 wow fadeInUp" data-wow-delay=".9s">
+                    <!-- Start Single Team -->
+                    <div class="single-team">
+                        <div class="team-image">
+                            <img src="{% static 'img/Pedrinho.jpeg' %}" alt="#">
+                        </div>
+                        <div class="content">
+                            <h4>Pedro Eduardo
+                                <span>Developer</span>
                             </h4>
                             <ul class="social">
                                 <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
@@ -486,10 +462,9 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
-                        <h3 class="wow zoomIn" data-wow-delay=".2s">Customer Reviews</h3>
-                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Our Testimonials</h2>
-                        <p class="wow fadeInUp" data-wow-delay=".6s">There are many variations of passages of Lorem
-                            Ipsum available, but the majority have suffered alteration in some form.</p>
+                        <h3 class="wow zoomIn" data-wow-delay=".2s">Avaliações de clientes</h3>
+                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Nossos testemunhos</h2>
+                        <p class="wow fadeInUp" data-wow-delay=".6s">Testemunhos dos nossos clientes que testaram e aprovaram o produto.</p>
                     </div>
                 </div>
             </div>
@@ -502,13 +477,12 @@
                                 <i class="lni lni-quotation"></i>
                             </div>
                             <div class="text">
-                                <p>“A vast number of clients decide to create dedicated software is the
-                                    online store. It is nothing but a website with a catalog of products and the
-                                    possibility.”</p>
+                                <p>“Desde que comecei a usar o site de gerenciamento financeiro, minha visão sobre as finanças mudou completamente. 
+                                    Agora, consigo planejar investimentos, pagar fornecedores em dia e ainda separar meu salário sem comprometer o fluxo de caixa. 
+                                    Isso foi um divisor de águas para minha empresa!”</p>
                             </div>
                             <div class="author">
-                                <img src="https://via.placeholder.com/100x100" alt="#">
-                                <h4 class="name">Somalia D Silva
+                                <h4 class="name">Luiz Felipe
                                     <span class="deg">Business Manager</span>
                                 </h4>
                             </div>
@@ -524,14 +498,13 @@
                                 <i class="lni lni-quotation"></i>
                             </div>
                             <div class="text">
-                                <p>“A vast number of clients decide to create dedicated software is the
-                                    online store. It is nothing but a website with a catalog of products and the
-                                    possibility.”</p>
+                                <p>“Estava endividado com cartões de crédito e sem saber como organizar meu dinheiro. 
+                                    O site me ensinou a criar metas, monitorar gastos e economizar, mesmo com uma renda limitada. 
+                                    Hoje, consegui quitar minhas dívidas e ainda juntar dinheiro para fazer um intercâmbio no próximo semestre.”</p>
                             </div>
                             <div class="author">
-                                <img src="https://via.placeholder.com/100x100" alt="#">
-                                <h4 class="name">David Warner
-                                    <span class="deg">Web Developer</span>
+                                <h4 class="name">Pedro Paulo
+                                    <span class="deg">Universitário</span>
                                 </h4>
                             </div>
                         </div>
@@ -546,13 +519,12 @@
                                 <i class="lni lni-quotation"></i>
                             </div>
                             <div class="text">
-                                <p>“A vast number of clients decide to create dedicated software is the
-                                    online store. It is nothing but a website with a catalog of products and the
-                                    possibility.”</p>
+                                <p>“Eu nunca fui boa com números, e a aposentadoria trouxe ainda mais desafios para gerenciar o que recebo e evitar gastos desnecessários. 
+                                    O site facilitou tudo: consigo visualizar para onde meu dinheiro está indo e fazer ajustes quando necessário. 
+                                    Pela primeira vez, sinto que estou no controle das minhas finanças!”</p>
                             </div>
                             <div class="author">
-                                <img src="https://via.placeholder.com/100x100" alt="#">
-                                <h4 class="name">Jems Gilario
+                                <h4 class="name">Julia hadassa
                                     <span class="deg">Graphics Designer</span>
                                 </h4>
                             </div>
@@ -568,13 +540,13 @@
                                 <i class="lni lni-quotation"></i>
                             </div>
                             <div class="text">
-                                <p>“A vast number of clients decide to create dedicated software is the
-                                    online store. It is nothing but a website with a catalog of products and the
-                                    possibility.”</p>
+                                <p>“Com dois filhos para cuidar, controlar as contas era um pesadelo. 
+                                    Esse site me ajudou a criar um orçamento claro e a definir prioridades. 
+                                    Agora, consigo economizar para as aulas de futebol do meu filho e ainda guardar um pouco para emergências. 
+                                    Ele trouxe mais tranquilidade para minha família.”</p>
                             </div>
                             <div class="author">
-                                <img src="https://via.placeholder.com/100x100" alt="#">
-                                <h4 class="name">David Warner
+                                <h4 class="name">Jade schoenstatt
                                     <span class="deg">Web Developer</span>
                                 </h4>
                             </div>
@@ -590,14 +562,13 @@
                                 <i class="lni lni-quotation"></i>
                             </div>
                             <div class="text">
-                                <p>“A vast number of clients decide to create dedicated software is the
-                                    online store. It is nothing but a website with a catalog of products and the
-                                    possibility.”</p>
+                                <p>“Como freelancer, minha renda varia todo mês, o que dificultava muito meu planejamento financeiro. 
+                                    O site foi uma ferramenta essencial para eu entender minhas finanças, criar uma reserva de emergência e até começar a investir. 
+                                    Hoje, sinto que tenho mais controle sobre o futuro.”</p>
                             </div>
                             <div class="author">
-                                <img src="https://via.placeholder.com/100x100" alt="#">
-                                <h4 class="name">Jems Gilario
-                                    <span class="deg">Graphics Designer</span>
+                                <h4 class="name">Henrique Augusto
+                                    <span class="deg">Freelancer</span>
                                 </h4>
                             </div>
                         </div>
@@ -609,251 +580,8 @@
     </section>
     <!-- End Testimonial Area -->
 
-    <!-- Start Blog Section Area -->
-    <section class="blog-section section">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-title">
-                        <h3 class="wow zoomIn" data-wow-delay=".2s">Blogs</h3>
-                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Our Latest News</h2>
-                        <p class="wow fadeInUp" data-wow-delay=".6s">There are many variations of passages of Lorem
-                            Ipsum available, but the majority have suffered alteration in some form.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay=".4s">
-                    <!-- Start Single Blog Grid -->
-                    <div class="single-blog-grid">
-                        <div class="blog-img">
-                            <a href="blog-single.html">
-                                <img src="https://via.placeholder.com/500x310" alt="#">
-                            </a>
-                        </div>
-                        <div class="blog-content">
-                            <div class="meta-info">
-                                <a class="date" href="javascript:void(0)"><i class="lni lni-timer"></i> 10 June 2023
-                                </a>
-                                <a class="author" href="javascript:void(0)"><i class="lni lni-user"></i> Anjelio Joly
-                                </a>
-                            </div>
-                            <h4>
-                                <a href="blog-single.html">Branding Involves Developing a Strategy to Creating.</a>
-                            </h4>
-                            <p>Lorem ipsum dolor sit amet, adipscing elitr, sit gifted sed diam nonumy eirmod tempor
-                                ividunt dolore.</p>
-                            <div class="button">
-                                <a href="blog-single.html" class="btn">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Blog Grid -->
-                </div>
-                <div class="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay=".6s">
-                    <!-- Start Single Blog -->
-                    <div class="single-blog-grid">
-                        <div class="blog-img">
-                            <a href="blog-single.html">
-                                <img src="https://via.placeholder.com/500x310" alt="#">
-                            </a>
-                        </div>
-                        <div class="blog-content">
-                            <div class="meta-info">
-                                <a class="date" href="javascript:void(0)"><i class="lni lni-timer"></i> 5 Aug 2023
-                                </a>
-                                <a class="author" href="javascript:void(0)"><i class="lni lni-user"></i> Kumila ksusi
-                                </a>
-                            </div>
-                            <h4>
-                                <a href="blog-single.html">Design is a Plan or The Construction of an
-                                    Object.</a>
-                            </h4>
-                            <p>Lorem ipsum dolor sit amet, adipscing elitr, sit gifted sed diam nonumy eirmod tempor
-                                ividunt dolore.</p>
-                            <div class="button">
-                                <a href="blog-single.html" class="btn">Read Blog</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Blog Grid -->
-                </div>
-                <div class="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay=".8s">
-                    <!-- Start Single Blog Grid -->
-                    <div class="single-blog-grid">
-                        <div class="blog-img">
-                            <a href="blog-single.html">
-                                <img src="https://via.placeholder.com/500x310" alt="#">
-                            </a>
-                        </div>
-                        <div class="blog-content">
-                            <div class="meta-info">
-                                <a class="date" href="javascript:void(0)"><i class="lni lni-timer"></i> 25 Dec 2023
-                                </a>
-                                <a class="author" href="javascript:void(0)"><i class="lni lni-user"></i> Alex Jendro
-                                </a>
-                            </div>
-                            <h4>
-                                <a href="blog-single.html">The Data-Driven Approach to Understanding.</a>
-                            </h4>
-                            <p>Lorem ipsum dolor sit amet, adipscing elitr, sit gifted sed diam nonumy eirmod tempor
-                                ividunt dolore.</p>
-                            <div class="button">
-                                <a href="blog-single.html" class="btn">Read Blog</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Blog Grid -->
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Blog Section Area -->
-
-    <!-- Start Faq Area -->
-    <section class="faq section">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-title">
-                        <h3 class="wow zoomIn" data-wow-delay=".2s">Faq</h3>
-                        <h2 class="wow fadeInUp" data-wow-delay=".4s">frequently asked questions</h2>
-                        <p class="wow fadeInUp" data-wow-delay=".6s">There are many variations of passages of Lorem
-                            Ipsum available, but the majority have
-                            suffered alteration in some form.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-12 col-12">
-                    <div class="accordion" id="accordionExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="heading1">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
-                                    <span class="title">Can I cancel my subscription at anytime?</span><i
-                                        class="lni lni-plus"></i>
-                                </button>
-                            </h2>
-                            <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam consectetur sit
-                                        amet ante nec vulputate. Nulla aliquam, justo auctor consequat tincidunt, arcu
-                                        erat mattis lorem.</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam consectetur sit
-                                        amet ante nec vulputate.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="heading2">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                                    <span class="title">Can I change my plan later on?</span><i
-                                        class="lni lni-plus"></i>
-                                </button>
-                            </h2>
-                            <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                                        richardson ad squid. 3 wolf moon officia aute. non cupidatat skateboard dolor
-                                        brunch. Foosd truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor.
-                                    </p>
-                                    <p>
-                                        sunt alqua put a bird on it squid single-origin coffee nulla assumenda
-                                        shoreditch et. Nihil anim ke ffiyeh helvetica, Spark beer labore wes anderson
-                                        cred nesciunt sapiente ea proident.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="heading3">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                                    <span class="title">Will you renew my subscription automatically?</span><i
-                                        class="lni lni-plus"></i>
-                                </button>
-                            </h2>
-                            <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas expedita,
-                                        repellendus est nemo cum quibusdam optio, voluptate hic a tempora facere, nihil
-                                        non itaque alias similique quas quam odit consequatur.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12 col-12 xs-margin">
-                    <div class="accordion" id="accordionExample2">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="heading11">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapse11" aria-expanded="false" aria-controls="collapse11">
-                                    <span class="title">How many sites can I install the widgets of this app
-                                        to?</span><i class="lni lni-plus"></i>
-                                </button>
-                            </h2>
-                            <div id="collapse11" class="accordion-collapse collapse" aria-labelledby="heading11"
-                                data-bs-parent="#accordionExample2">
-                                <div class="accordion-body">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam consectetur sit
-                                        amet ante nec vulputate. Nulla aliquam, justo auctor consequat tincidunt, arcu
-                                        erat mattis lorem.</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam consectetur sit
-                                        amet ante nec vulputate.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="heading22">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapse22" aria-expanded="false" aria-controls="collapse22">
-                                    <span class="title">Do you offer any discounts?</span><i class="lni lni-plus"></i>
-                                </button>
-                            </h2>
-                            <div id="collapse22" class="accordion-collapse collapse" aria-labelledby="heading22"
-                                data-bs-parent="#accordionExample2">
-                                <div class="accordion-body">
-                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                                        richardson ad squid. 3 wolf moon officia aute. non cupidatat skateboard dolor
-                                        brunch. Foosd truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor.
-                                    </p>
-                                    <p>
-                                        sunt alqua put a bird on it squid single-origin coffee nulla assumenda
-                                        shoreditch et. Nihil anim ke ffiyeh helvetica, Spark beer labore wes anderson
-                                        cred nesciunt sapiente ea proident.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="heading33">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapse33" aria-expanded="false" aria-controls="collapse33">
-                                    <span class="title">Do I get updates for the app?</span><i class="lni lni-plus"></i>
-                                </button>
-                            </h2>
-                            <div id="collapse33" class="accordion-collapse collapse" aria-labelledby="heading33"
-                                data-bs-parent="#accordionExample2">
-                                <div class="accordion-body">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas expedita,
-                                        repellendus est nemo cum quibusdam optio, voluptate hic a tempora facere, nihil
-                                        non itaque alias similique quas quam odit consequatur.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--/ End Faq Area -->
-
     <!-- Start Footer Area -->
-    <footer class="footer section">
+    <footer id="contact" class="footer section">
         <!-- Start Footer Top -->
         <div class="footer-top">
             <div class="container">
@@ -862,11 +590,6 @@
                         <div class="col-lg-4 col-md-6 col-12">
                             <!-- Single Widget -->
                             <div class="single-footer f-about">
-                                <div class="logo">
-                                    <a href="index.html">
-                                        <img src="assets/images/logo/white-logo.svg" alt="#">
-                                    </a>
-                                </div>
                                 <p>Making the world a better place through constructing elegant hierarchies.</p>
                                 <h4 class="social-title">Follow Us On:</h4>
                                 <ul class="social">
@@ -932,7 +655,7 @@
                 <div class="inner-content">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-12">
-                            <p class="copyright-text">© 2023 Spark - All Rights Reserved</p>
+                            <p class="copyright-text">© 2024 Spark - All Rights Reserved</p>
                         </div>
                     </div>
                 </div>
