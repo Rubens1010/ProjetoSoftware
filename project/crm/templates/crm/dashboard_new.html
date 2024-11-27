@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  {% load humanize %}
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="icon" href="{% static '/img/assets/images/favicon.svg' %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
+<!-- Fontawesome -->
+<link type="text/css" href="https://appsrv1-147a1.kxcdn.com/volt-dashboard/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+
+<!-- Volt CSS -->
+<link type="text/css" href="https://appsrv1-147a1.kxcdn.com/volt-dashboard/css/volt.css" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'css/custom/dashboard.css' %}">  
+
+</head>
+
+<body">
+
+  <nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="{% static '/img/assets/images/logo/white-logo.svg' %}" alt="Logo">
+        </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+            <a class="navbar-brand mr-lg-5" href="/">
+                <img class="navbar-brand-dark" src="{% static '/img/assets/images/favicon.svg' %}" alt="Volt logo">
+            </a>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item   active ">
+                <a href="#" class="nav-link">
+                <span class="sidebar-icon"><span class="fas fa-chart-pie"></span></span>
+                <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item  ">
+                <a href="{% url 'finance' %}" class="nav-link">
+                    <span class="sidebar-icon"><span class="fas fa-hand-holding-usd"></span></span>
+                    <span>Finanças</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'user-logout' %}" class="nav-link">
+                    <span class="sidebar-icon"><span class="fas fa-sign-out-alt text-danger"></span></span>
+                    <span>Logout</span>
+                </a>
+            </li> 
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+       
+
+  <main class="content"> 
+
+    <div class="mt-5">.</div> 
+
+    <div class="mt-2 ">
+        
+        <ul class="nav justify-content-start">
+            <li class="nav-item">
+                <h1>Olá, {{ request.user }}!</h1>
+            </li>
+          </ul>
+        
+    </div>  
+
+      <div class="container mt-5 text-center">
+        <!-- Modal Calculadora-->
+        <div class="modal fade" id="calculadoraModal" tabindex="-1" role="dialog" aria-labelledby="calculadoraModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="calculadoraModalLabel">Calculadora</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="calculator">
+                            <div id="display" class="calculator-display">0</div>
+                            <div class="row" style="width: 100%;">
+                                <button class="btn btn-operation" onclick="clearDisplay()">C</button>
+                                <button class="btn btn-operation" onclick="chooseOperation('subtracao')">-</button>
+                                <button class="btn btn-operation" onclick="chooseOperation('multiplicacao')">x</button>
+                                <button class="btn btn-operation" onclick="chooseOperation('divisao')">/</button>
+                            </div>
+                            <div class="row">
+                                <button class="btn btn-number" onclick="appendNumber(7)">7</button>
+                                <button class="btn btn-number" onclick="appendNumber(8)">8</button>
+                                <button class="btn btn-number" onclick="appendNumber(9)">9</button>
+                                
+                            </div>
+                            <div class="row">
+                                <button class="btn btn-number" onclick="appendNumber(4)">4</button>
+                                <button class="btn btn-number" onclick="appendNumber(5)">5</button>
+                                <button class="btn btn-number" onclick="appendNumber(6)">6</button>
+                                
+                            </div>
+                            <div class="row">
+                                <button class="btn btn-number" onclick="appendNumber(1)">1</button>
+                                <button class="btn btn-number" onclick="appendNumber(2)">2</button>
+                                <button class="btn btn-number" onclick="appendNumber(3)">3</button>
+                                
+                            </div>
+                            <div class="row">
+                                <button class="btn btn-operation" onclick="chooseOperation('soma')">+</button>
+                                <button class="btn btn-number" onclick="appendNumber(0)">0</button>  
+                                <button class="btn btn-equal" onclick="compute()">=</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+          
+
+          <!-- Modal -->
+          <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar entradas</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <form method="POST" action="{% url 'update_value' %}">
+                          {% csrf_token %}
+                          <div class="mb-3">
+                              <label for="monthlyEarnings" class="form-label">Enter Monthly Earnings</label>
+                              <input type="text" class="form-control" id="monthlyEarnings" name="monthlyEarnings" required maxlength="8" pattern="\d*">
+                            </div>
+                          <div class="mb-3">
+                              <label for="date" class="form-label">Date</label>
+                              <input type="date" class="form-control" id="date" name="date" required>
+                          </div>
+                          <div class="mb-3">
+                            <label for="description" class="form-label">Descrição</label>
+                            <input type="text" maxlength="50" class="form-control" id="description" name="description" required>
+                        </div>
+                          <button type="submit" class="btn btn-success">Adicionar Saldos</button>
+                      </form>
+                  </div>
+                  <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
+              </div>
+              </div>
+          </div>
+          
+          <!-- Modal -->
+          <div class="modal fade " id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar Saidas</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <!-- Formulário para subtrair valor -->
+                      <form method="POST" action="{% url 'subtract_value' %}">
+                          {% csrf_token %}
+                          <div class="mb-3">
+                              <label for="monthlyExpense" class="form-label">Monthly Expense:</label>
+                              <input type="number" step="0.01" class="form-control" id="monthlyExpense" name="monthlyExpense" required>
+                          </div>
+                          <div class="mb-3">
+                              <label for="date" class="form-label">Date</label>
+                              <input type="date" class="form-control" id="date" name="date" required>
+                          </div>
+                          <div class="mb-3">
+                            <label for="description" class="form-label">Descrição</label>
+                            <input type="text" maxlength="50" class="form-control" id="description" name="description" required>
+                        </div>
+                          <button type="submit" class="btn btn-danger">Adicionar Gastos</button>
+                      </form>
+                  </div>
+                  <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
+              </div>
+              </div>
+          </div>    
+          </div>
+      </div>
+
+    <div class="row justify-content-md-center">
+          <div class="col-12 col-sm-6 col-xl-4 mb-4">
+            <div class="card border-light shadow-sm">
+                <div class="card-body">
+                    <div class="col-12 col-xl-7 px-xl-0">
+                        <div class="d-none d-sm-block">
+                            <h2 class="h5">Saldo </h2>
+                            <h3 class="mb-1 text-success">${{ difference|floatformat:2|intcomma }} </h3>
+                            <div class="small mt-2 md-8">                           
+                                <span class="fas fa-angle-up text-success"></span>                                   
+                                <span class="text-success font-weight-bold">{{ percentage|floatformat:2 }}%</span>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+          <div class="col-12 col-sm-6 col-xl-4 mb-4">
+              <div class="card border-light shadow-sm">
+                  <div class="card-body">
+                        <div class="col-12 col-xl-7 px-xl-0">
+                            <div class="d-none d-sm-block">
+                                <h2 class="h5">Income</h2>
+                                <h3 class="mb-1">${{ monthly_earnings|floatformat:2|intcomma }}</h3>
+                            </div>
+                        </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-12 col-sm-6 col-xl-4 mb-4">
+              <div class="card border-light shadow-sm">
+                  <div class="card-body">
+                        <div class="col-12 col-xl-7 px-xl-0">
+                            <div class="d-none d-sm-block">
+                                <h2 class="h5">Expenses</h2>
+                                <h3 class="mb-1">R${{ monthly_expense|floatformat:2|intcomma }}</h3>
+                            </div>
+                        </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+        
+    <div class="row justify-content-md-center">
+        <div class="col-12 col-sm-6 col-xl-4 mb-4">
+          <div class="card border-light shadow-sm">
+              <div class="card-body">
+                  <div class="row d-block d-xl-flex align-items-center">
+                      <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+                          <button class="btn icon icon-shape icon-md icon-shape-success rounded mr-4 mr-sm-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><span class="fas fa-plus-circle"></span></button>
+                      </div>
+                      <div class="col-12 col-xl-7 px-xl-0">
+                          <div class="d-none d-sm-block">
+                              <b>Add Entradas</b>
+                              <h5 class="mb-1">Adicione suas entradas</h5>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+        <div class="col-12 col-sm-6 col-xl-4 mb-4">
+            <div class="card border-light shadow-sm">
+                <div class="card-body">
+                    <div class="row d-block d-xl-flex align-items-center">
+                        <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+                            <button class="btn icon icon-shape icon-md icon-shape-danger rounded mr-4 mr-sm-0"  data-bs-toggle="modal" data-bs-target="#staticBackdrop2"><span class="fas fa-minus-circle"></span></button>
+                        </div>
+                        <div class="col-12 col-xl-7 px-xl-0">
+                            <div class="d-none d-sm-block">
+                                <b>Add Saídas</b>
+                                <h5 class="mb-1">Adicione suas saídas</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+           <!-- Adicionar % na calculadora -->
+
+        <div class="col-12 col-sm-6 col-xl-4 mb-4">
+            <div class="card border-light shadow-sm">
+                <div class="card-body">
+                    <div class="row d-block d-xl-flex align-items-center">
+                        <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+                            <button class="btn icon icon-shape icon-md icon-shape-primary rounded mr-4 mr-sm-0"  data-toggle="modal" data-target="#calculadoraModal"><span class="fas fa-calculator "></span></button>
+                        </div>
+                        <div class="col-12 col-xl-7 px-xl-0">
+                            <div class="d-none d-sm-block">
+                                <b>Calculadora</b>
+                                <h5 class="mb-1">Calcule seus planos</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+        <div class="col-12 col-sm-6 col-xl-4 mb-4">
+            <div class="card border-light shadow-sm">
+                <div class="card-body">
+                    <div class="row d-block d-xl-flex align-items-center">
+                        <canvas id="addedBalanceChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        <div class="card border-light shadow-sm">
+                            <div class="card-header">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                    <h2 class="h5">Extrato</h2>
+                                    <small>Verifique suas últimas transações</small>
+                                    </div>
+                                    <div class="col text-right">
+                                      <form method="POST" action="{% url 'clear_transactions' %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-danger">Limpar Transações</button>
+                                    </form>
+                                    </div>
+                                </div>
+                            </div>
+      
+        <!-- Formulário para limpar transações -->
+        <table class="table">
+            <thead>
+                <tr style="background-color:#eaedf2 ;">
+                    <th>Descrição</th>
+                    <th>Tipo</th>
+                    <th>Data</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for transaction in transactions %}
+                    <tr>
+                        <td>{{ transaction.description }}</td>
+                        <td class="{% if transaction.transaction_type == 'expense' %}text-danger{% else %}text-success {% endif %}">{{ transaction.get_transaction_type_display }}</td>
+                        <td>{{ transaction.date }}</td>
+                        <td class="{% if transaction.transaction_type == 'expense' %}text-danger{% else %}text-success {% endif %}">${{ transaction.amount }}</td>
+                        
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="4">Nenhuma transação encontrada.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+
+  </main>
+
+  <script src="{% static 'chat.js' %}" type="text/javascript"></script>
+
+  <script>
+
+  // Número de dados a serem exibidos (ganhos e despesas)
+const DATA_COUNT = 2;
+
+// Configuração dos valores mínimos e máximos (não necessário aqui, mas mantendo a estrutura)
+const NUMBER_CFG = { count: DATA_COUNT, min: 0, max: 100 };
+
+// Dados de ganhos e despesas
+const data = {
+  labels: ['Earnings', 'Expenses'],  // Etiquetas
+  datasets: [
+    {
+      label: 'Monthly Balance',  // Rótulo do dataset
+      data: [{{ monthly_earnings }}, {{ monthly_expense }}],  // Dados vindos do backend
+      backgroundColor: [
+        'rgba(54, 162, 235, 0.6)',  // Azul para Earnings
+        'rgba(255, 99, 132, 0.6)'   // Vermelho para Expenses
+      ],
+      borderColor: [
+        'rgba(54, 162, 235, 1)',    // Cor da borda Earnings
+        'rgba(255, 99, 132, 1)'     // Cor da borda Expenses
+      ],
+      borderWidth: 2,  // Borda mais visível
+      hoverOffset: 4   // Efeito de destaque ao passar o mouse
+    }
+  ]
+};
+
+// Configuração do gráfico Doughnut
+const config = {
+  type: 'doughnut',  // Define o tipo Doughnut
+  data: data,  // Dados que definimos acima
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',  // Posição da legenda no topo
+      },
+      title: {
+        display: true,
+        text: 'Monthly Balance Overview',  // Título do gráfico
+        font: {
+          size: 16,
+          family: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"
+        }
+      },
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            let label = context.label || '';
+            if (label) {
+              label += ': ';
+            }
+            label += '$' + context.raw.toLocaleString();  // Formata os valores com vírgulas
+            return label;
+          }
+        }
+      }
+    },
+    animation: {
+      animateScale: true,  // Animação de escala ao carregar o gráfico
+      animateRotate: true  // Animação de rotação
+    },
+    cutout: '70%',  // Tamanho do buraco interno para estilo Doughnut
+  },
+};
+
+// Criação do gráfico Doughnut
+const addedBalanceChart = new Chart(document.getElementById('addedBalanceChart'), config);
+
+
+
+
+// calculadora
+
+    let currentOperand = '';
+        let previousOperand = '';
+        let operation = undefined;
+
+        function appendNumber(number) {
+            if (number === 0 && currentOperand === '') return;
+            currentOperand = currentOperand.toString() + number.toString();
+            updateDisplay();
+        }
+
+        function chooseOperation(op) {
+            if (currentOperand === '') return;
+            if (previousOperand !== '') {
+                compute();
+            }
+            operation = op;
+            previousOperand = currentOperand;
+            currentOperand = '';
+        }
+
+        function compute() {
+            let computation;
+            const prev = parseFloat(previousOperand);
+            const current = parseFloat(currentOperand);
+            if (isNaN(prev) || isNaN(current)) return;
+            switch (operation) {
+                case 'soma':
+                    computation = prev + current;
+                    break;
+                case 'subtracao':
+                    computation = prev - current;
+                    break;
+                case 'multiplicacao':
+                    computation = prev * current;
+                    break;
+                case 'divisao':
+                    computation = prev / current;
+                    break;
+                default:
+                    return;
+            }
+            currentOperand = computation;
+            operation = undefined;
+            previousOperand = '';
+            updateDisplay();
+        }
+
+        function clearDisplay() {
+            currentOperand = '';
+            previousOperand = '';
+            operation = undefined;
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            document.getElementById('display').innerText = currentOperand || '0';
+        }
+
+    </script>
+  
+  <!-- Core -->
+  <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/vendor/popper.js/dist/umd/popper.min.js"></script>
+  <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+  
+  <!-- Vendor JS -->
+  <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/vendor/onscreen/dist/on-screen.umd.min.js"></script>
+  
+  <!-- Slider -->
+  <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/vendor/nouislider/distribute/nouislider.min.js"></script>
+  
+  <!-- Jarallax -->
+  <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/vendor/jarallax/dist/jarallax.min.js"></script><div style="position: fixed; top: -9999px; left: 0px; height: 100vh; width: 0px;"></div>
+  
+  <!-- Smooth scroll -->
+  <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+  
+  <!-- Count up -->
+  <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/vendor/countup.js/dist/countUp.umd.js"></script>
+  
+  <!-- Notyf -->
+  <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/vendor/notyf/notyf.min.js"></script>
+  
+  <!-- Charts -->
+  <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/vendor/chartist/dist/chartist.min.js"></script>
+  <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+  
+  <!-- Datepicker -->
+  <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/vendor/vanillajs-datepicker/dist/js/datepicker.min.js"></script>
+  
+  <!-- Simplebar -->
+  <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/vendor/simplebar/dist/simplebar.min.js"></script>
+
+  <!-- Github buttons -->
+  <script async="" defer="" src="https://buttons.github.io/buttons.js"></script>
+
+  <!-- Volt JS -->
+  <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard/js/volt.min.js"></script>
+  
+  
+  <!-- Specific Page JS goes HERE  -->
+  
+
+
+
+</body>
+
+</html>
